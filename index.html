@@ -1,1088 +1,833 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PTC Nepal - Elevating Pokhara through Innovation</title>
-<link rel="icon" type="image/png" href="https://static.readdy.ai/image/da06f31665025fca89e117379cbb1dff/ef604ae08cc707f1fecfd581f69c9d4f.png">
-<script src="https://cdn.tailwindcss.com/3.4.16"></script>
-<script>tailwind.config={theme:{extend:{colors:{primary:'#FDCD22',secondary:''},borderRadius:{'none':'0px','sm':'2px',DEFAULT:'4px','md':'8px','lg':'12px','xl':'16px','2xl':'20px','3xl':'24px','full':'9999px','button':'4px'}}}}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
-<style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-@keyframes typing {
-from { width: 0 }
-to { width: 100% }
-}
-@keyframes blink {
-0%, 100% { opacity: 1; }
-50% { opacity: 0; }
-}
-.typing-text {
-overflow: hidden;
-white-space: nowrap;
-border-right: none;
-width: 0;
-animation: typing 3s steps(30, end) forwards;
-}
-.animate-blink {
-animation: blink 0.7s step-end infinite;
-}
-body {
-font-family: 'Inter', sans-serif;
-scroll-behavior: smooth;
-transition: background-color 0.3s, color 0.3s;
-}
-body.light-mode {
-background-color: #f8fafc;
-color: #1e293b;
-}
-body.light-mode .bg-slate-950 {
-background-color: #f8fafc;
-}
-body.light-mode .bg-slate-900 {
-background-color: #f1f5f9;
-}
-body.light-mode .bg-slate-800 {
-background-color: #e2e8f0;
-}
-body.light-mode .text-gray-400 {
-color: #64748b;
-}
-body.light-mode .border-slate-800 {
-border-color: #cbd5e1;
-}
-body.light-mode .border-slate-700 {
-border-color: #cbd5e1;
-}
-body.dark-mode {
-background-color: #0f172a;
-color: #f8fafc;
-}
-body.dark-mode .bg-slate-950 {
-background-color: #0f172a;
-}
-body.dark-mode .bg-slate-900 {
-background-color: #1e293b;
-}
-body.dark-mode .bg-slate-800 {
-background-color: #334155;
-}
-body.dark-mode .text-gray-400 {
-color: #94a3b8;
-}
-body.dark-mode .border-slate-800 {
-border-color: #475569;
-}
-body.dark-mode .border-slate-700 {
-border-color: #475569;
-}
-body.light-mode .glassmorphism {
-background: rgba(255, 255, 255, 0.9);
-border: 1px solid rgba(0, 0, 0, 0.1);
-}
-body.dark-mode .glassmorphism {
-background: rgba(30, 41, 59, 0.8);
-backdrop-filter: blur(10px);
-border: 1px solid rgba(100, 116, 139, 0.3);
-box-shadow: 0 8px 32px rgba(15, 23, 42, 0.1);
-}
-body.light-mode .neomorphic {
-background: linear-gradient(145deg, #ffffff, #e2e8f0);
-box-shadow: 5px 5px 15px #cbd5e1, -5px -5px 15px #ffffff;
-}
-body.dark-mode .neomorphic {
-background: linear-gradient(145deg, #1e293b, #334155);
-box-shadow: 5px 5px 15px rgba(15, 23, 42, 0.5), -5px -5px 15px rgba(71, 85, 105, 0.5);
-}
-.glow {
-box-shadow: 0 0 15px rgba(253, 205, 34, 0.5);
-}
-.glow-input:focus {
-box-shadow: 0 0 10px rgba(253, 205, 34, 0.7);
-}
-.floating {
-animation: float 3s ease-in-out infinite;
-}
-@keyframes float {
-0% { transform: translateY(0px); }
-50% { transform: translateY(-10px); }
-100% { transform: translateY(0px); }
-}
-.pulse {
-animation: pulse 2s infinite;
-}
-@keyframes pulse {
-0% { box-shadow: 0 0 0 0 rgba(253, 205, 34, 0.7); }
-70% { box-shadow: 0 0 0 10px rgba(253, 205, 34, 0); }
-100% { box-shadow: 0 0 0 0 rgba(253, 205, 34, 0); }
-}
-.circuit-bg {
-position: relative;
-overflow: hidden;
-}
-body.light-mode .circuit-bg {
-background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-}
-body.dark-mode .circuit-bg {
-background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-}
-.circuit-bg::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-image: radial-gradient(rgba(253, 205, 34, 0.1) 1px, transparent 1px),
-radial-gradient(rgba(253, 205, 34, 0.1) 1px, transparent 1px);
-background-size: 40px 40px;
-background-position: 0 0, 20px 20px;
-}
-.circuit-bg::after {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: linear-gradient(45deg, rgba(253, 205, 34, 0.05), rgba(46, 65, 114, 0.05));
-animation: gradient 15s ease infinite;
-}
-@keyframes gradient {
-0% { background-position: 0% 50%; }
-50% { background-position: 100% 50%; }
-100% { background-position: 0% 50%; }
-}
-.custom-checkbox {
-appearance: none;
-width: 20px;
-height: 20px;
-border: 2px solid #4b5563;
-border-radius: 4px;
-background-color: transparent;
-display: inline-block;
-position: relative;
-margin-right: 0.5rem;
-vertical-align: middle;
-cursor: pointer;
-}
-.custom-checkbox:checked {
-background-color: #FDCD22;
-border-color: #FDCD22;
-}
-.custom-checkbox:checked::after {
-content: '';
-position: absolute;
-left: 6px;
-top: 2px;
-width: 5px;
-height: 10px;
-border: solid white;
-border-width: 0 2px 2px 0;
-transform: rotate(45deg);
-}
-.custom-switch {
-position: relative;
-display: inline-block;
-width: 50px;
-height: 24px;
-}
-.custom-switch input {
-opacity: 0;
-width: 0;
-height: 0;
-}
-.slider {
-position: absolute;
-cursor: pointer;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background-color: #374151;
-transition: .4s;
-border-radius: 34px;
-}
-.slider:before {
-position: absolute;
-content: "";
-height: 16px;
-width: 16px;
-left: 4px;
-bottom: 4px;
-background-color: white;
-transition: .4s;
-border-radius: 50%;
-}
-input:checked + .slider {
-background-color: #FDCD22;
-}
-input:checked + .slider:before {
-transform: translateX(26px);
-}
-input[type="range"] {
--webkit-appearance: none;
-width: 100%;
-height: 6px;
-background: linear-gradient(90deg, #FDCD22 60%, #2E4172 60%);
-border-radius: 5px;
-outline: none;
-}
-input[type="range"]::-webkit-slider-thumb {
--webkit-appearance: none;
-appearance: none;
-width: 18px;
-height: 18px;
-background: #FDCD22;
-border-radius: 50%;
-cursor: pointer;
-}
-input[type="range"]::-moz-range-thumb {
-width: 18px;
-height: 18px;
-background: #FDCD22;
-border-radius: 50%;
-cursor: pointer;
-}
-.video-container {
-position: relative;
-overflow: hidden;
-width: 100%;
-height: 100vh;
-}
-.video-container video {
-position: absolute;
-top: 50%;
-left: 50%;
-min-width: 100%;
-min-height: 100%;
-width: auto;
-height: auto;
-transform: translateX(-50%) translateY(-50%);
-}
-.video-overlay {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.7);
-}
-.wave-separator {
-position: relative;
-height: 70px;
-background: #0f172a;
-}
-.wave-separator::before {
-content: "";
-position: absolute;
-left: 0;
-bottom: 0;
-right: 0;
-background-repeat: no-repeat;
-height: 70px;
-background-size: cover;
-background-position: center;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23FDCD22' fill-opacity='0.2' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,117.3C672,107,768,117,864,144C960,171,1056,213,1152,213.3C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-}
-.service-card {
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.service-card:hover {
-transform: translateY(-5px);
-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-.project-card {
-transition: transform 0.3s ease, border-color 0.3s ease;
-}
-.project-card:hover {
-transform: translateY(-5px);
-border-color: #FDCD22;
-}
-.chat-container {
-transition: all 0.3s ease;
-max-height: 0;
-overflow: hidden;
-}
-.chat-container.active {
-max-height: 400px;
-}
-
-/* Multicolor background sections */
-.hero-bg {
-background: linear-gradient(135deg, #1a237e, #0d47a1, #1976d2, #00bcd4);
-background-size: 400% 400%;
-animation: gradientBG 15s ease infinite;
-}
-
-.services-bg {
-background: linear-gradient(135deg, #4a148c, #7b1fa2, #9c27b0, #e91e63);
-background-size: 400% 400%;
-animation: gradientBG 15s ease infinite;
-}
-
-.about-bg {
-background: linear-gradient(135deg, #006064, #00838f, #0097a7, #00acc1);
-background-size: 400% 400%;
-animation: gradientBG 15s ease infinite;
-}
-
-.projects-bg {
-background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c, #43a047);
-background-size: 400% 400%;
-animation: gradientBG 15s ease infinite;
-}
-
-.why-choose-bg {
-background: linear-gradient(135deg, #e65100, #ef6c00, #f57c00, #fb8c00);
-background-size: 400% 400%;
-animation: gradientBG 15s ease infinite;
-}
-
-.contact-bg {
-background: linear-gradient(135deg, #bf360c, #d84315, #e64a19, #f4511e);
-background-size: 400% 400%;
-animation: gradientBG 15s ease infinite;
-}
-
-.footer-bg {
-background: linear-gradient(135deg, #3e2723, #4e342e, #5d4037, #6d4c41);
-background-size: 400% 400%;
-animation: gradientBG 15s ease infinite;
-}
-
-@keyframes gradientBG {
-0% { background-position: 0% 50%; }
-50% { background-position: 100% 50%; }
-100% { background-position: 0% 50%; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTC Nepal Pvt. Ltd. | Complete web and app development services in Pokhara</title>
+  <link rel="icon" type="image/png" href="https://static.readdy.ai/image/da06f31665025fca89e117379cbb1dff/ef604ae08cc707f1fecfd581f69c9d4f.png">
+    <meta name="description" content="Trusted Montreal plumbers offering 24/7 emergency services, drain cleaning, water heater repair, and all residential & commercial plumbing solutions. Call us anytime!">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066cc',
+                        secondary: '#003366',
+                        accent: '#ff6600',
+                        light: '#f8f9fa',
+                        dark: '#212529',
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom CSS */
+        .hero-section {
+            position: relative;
+            height: 99vh;
+            overflow: hidden;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #ff6600;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Animation for hero text */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
 </head>
-<!-- Navigation -->
-<nav class="fixed top-0 left-0 right-0 z-50 glassmorphism">
-<div class="container mx-auto px-6 py-3">
-<div class="flex items-center justify-between">
-<div class="flex items-center">
-<a href="#" class="flex items-center">
-<img src="https://static.readdy.ai/image/da06f31665025fca89e117379cbb1dff/ef604ae08cc707f1fecfd581f69c9d4f.png" alt="PTC Nepal Logo" class="h-10 w-auto">
-</a>
-</div>
-<div class="hidden md:flex items-center space-x-8">
-<a href="#home" class="hover:text-primary transition-colors">Home</a>
-<a href="#services" class="hover:text-primary transition-colors">Services</a>
-<a href="#projects" class="hover:text-primary transition-colors">Projects</a>
-<a href="#about" class="hover:text-primary transition-colors">About Us</a>
-<a href="#contact" class="hover:text-primary transition-colors">Contact</a>
-</div>
-<div class="flex items-center space-x-4">
-<label class="custom-switch">
-<input type="checkbox" id="darkModeToggle">
-<span class="slider"></span>
-</label>
-<a href="#contact" class="bg-primary text-slate-900 px-4 py-2 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Get a Quote</a>
-</div>
-<div class="md:hidden w-8 h-8 flex items-center justify-center">
-<i class="ri-menu-line ri-2x"></i>
-</div>
-</div>
-</div>
-</nav>
-<!-- Hero Section -->
-<section id="home" class="relative h-screen w-full hero-bg">
-<div class="video-container">
-<div style="background-image: url('https://readdy.ai/api/search-image?query=futuristic%20technology%20background%20with%20code%2C%20matrix%20style%20overlays%2C%20digital%20interface%2C%20dark%20blue%20and%20cyan%2C%20cyberpunk%20aesthetic%2C%20high-tech%20environment%20with%20glowing%20elements%2C%20abstract%20programming%20concept&width=1920&height=1080&seq=1&orientation=landscape');" class="absolute inset-0 bg-cover bg-center"></div>
-<div class="video-overlay"></div>
-</div>
-<div class="absolute inset-0 flex items-center justify-center">
-<div class="container mx-auto px-6 text-center">
-<h1 class="hero-text text-5xl md:text-7xl font-bold mb-6 text-white">Welcome to the Future of digitization</h1>
-<div class="flex items-center justify-center mb-6">
-<span class="text-xl md:text-2xl text-white">We create</span>
-<span class="typing-text text-primary text-xl md:text-2xl font-semibold ml-2"></span>
-<span class="typing-cursor text-primary text-xl md:text-2xl font-semibold animate-blink">|</span>
-</div>
-<p class="text-xl md:text-2xl mb-10 text-gray-300 max-w-3xl mx-auto">PTC Nepal. – Elevating Pokhara through Innovation</p>
-<div class="flex flex-col sm:flex-row justify-center gap-4">
-<a href="#services" class="bg-primary text-slate-900 px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap text-lg">Explore Services</a>
-<a href="#contact" class="border-2 border-white bg-transparent px-8 py-3 !rounded-button font-medium hover:bg-white hover:bg-opacity-10 transition-all whitespace-nowrap text-lg text-white">Get a Free Quote</a>
-</div>
-</div>
-</div>
-</div>
-<div class="absolute bottom-10 left-0 right-0 flex justify-center">
-<a href="#services" class="animate-bounce">
-<div class="w-10 h-10 flex items-center justify-center rounded-full border-2 border-white">
-<i class="ri-arrow-down-line ri-lg"></i>
-</div>
-</a>
-</div>
-</section>
-<!-- Services Section -->
-<section id="services" class="py-20 services-bg circuit-bg">
-<div class="container mx-auto px-6">
-<div class="text-center mb-16">
-<h2 class="section-title text-4xl font-bold mb-4">Our <span class="text-primary">Services</span></h2>
-<p class="text-gray-600 max-w-2xl mx-auto">We deliver cutting-edge solutions tailored to your business needs, leveraging the latest technologies to drive innovation and growth.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-<!-- Service 1 -->
-<div class="service-card neomorphic bg-green-500 rounded-lg p-8 text-center">
-<div class="w-16 h-16 flex items-center justify-center mx-auto mb-6 bg-purple-800 rounded-full">
-<i class="ri-code-line ri-xl text-primary"></i>
-</div>
-<h3 class="text-xl font-semibold mb-4 text-primary">Custom Website Development</h3>
-<p class="text-gray-600 mb-6">Responsive, high-performance websites built with cutting-edge technologies to showcase your brand.</p>
-<a href="#" class="text-primary inline-flex items-center">
-  create Website
-<i class="ri-arrow-right-line ml-2"></i>
-</a>
-</div>
-<!-- Service 2 -->
-<div class="service-card neomorphic bg-blue-700 rounded-lg p-8 text-center"> 
-<div class="w-16 h-16 flex items-center justify-center mx-auto mb-6 bg-green-800 rounded-full">
-<i class="ri-smartphone-line ri-xl text-primary"></i>
-</div>
-<h3 class="text-xl font-semibold mb-4 text-primary">Mobile App Development</h3>
-<p class="text-gray-600 mb-6">Native and cross-platform mobile applications that deliver exceptional user experiences.</p>
-<a href="#" class="text-primary inline-flex items-center">
-Dev App
-<i class="ri-arrow-right-line ml-2"></i>
-</a>
-</div>
-<!-- Service 3 -->
-<div class="service-card neomorphic bg-pink-500 rounded-lg p-8 text-center">
-<div class="w-16 h-16 flex items-center justify-center mx-auto mb-6 bg-pink-800 rounded-full">
-<i class="ri-robot-line ri-xl text-primary"></i>
-</div>
-<h3 class="text-xl font-semibold mb-4 text-primary">AI & Machine Learning</h3>
-<p class="text-gray-500 mb-6">Intelligent solutions that leverage AI and ML to automate processes and extract valuable insights.</p>
-<a href="#" class="text-primary inline-flex items-center">
-Create AI
-<i class="ri-arrow-right-line ml-2"></i>
-</a>
-</div>
-<!-- Service 4 -->
-<div class="service-card neomorphic bg-purple-500 rounded-lg p-8 text-center">
-<div class="w-16 h-16 flex items-center justify-center mx-auto mb-6 bg-blue-800 rounded-full">
-<i class="ri-cloud-line ri-xl text-primary"></i>
-</div>
-<h3 class="text-xl font-semibold mb-4 text-primary">API Development</h3>
-<p class="text-gray-600 mb-6">Robust, scalable API solutions that connect your systems and enable seamless data exchange.</p>
-<a href="#" class="text-primary inline-flex items-center">
-API DEV
-<i class="ri-arrow-right-line ml-2"></i>
-</a>
-</div>
-</div>
-</div>
-</section>
-<!-- About Us Section -->
-<section id="about" class="py-20 about-bg">
-<div class="container mx-auto px-6">
-<div class="flex flex-col lg:flex-row items-center gap-12">
-<div class="lg:w-1/2">
-<img src="https://readdy.ai/api/search-image?query=futuristic%20tech%20team%20working%20in%20a%20modern%20office%20with%20holographic%20displays%2C%20diverse%20team%20of%20developers%20collaborating%2C%20blue%20and%20purple%20lighting%2C%20high-tech%20environment%2C%20software%20development%20visualization%2C%20professional%20setting&width=600&height=600&seq=2&orientation=squarish" alt="About PTC Nepal" class="rounded-lg shadow-2xl">
-</div>
-<div class="lg:w-1/2">
-<h2 class="section-title text-4xl font-bold mb-6">About <span class="text-primary">Us</span></h2>
-<p class="text-gray-300 mb-6">We are a Pokhara-based futuristic tech company specializing in custom software, websites, and app development. Founded in 2020, PTC Nepal has quickly established itself as a leader in technological innovation in the region.</p><p class="text-gray-300 mb-6">Our team of expert developers, designers, and strategists work together to deliver exceptional digital experiences that drive business growth and user engagement.</p>
-<div class="grid grid-cols-2 gap-6 mt-8">
-<div class="flex items-start">
-<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-lg mr-4">
-<i class="ri-team-line text-primary"></i>
-</div>
-<div>
-<h3 class="font-semibold mb-2">Expert Team</h3>
-<p class="text-gray-300 text-sm">Skilled professionals with diverse expertise</p>
-</div>
-</div>
-<div class="flex items-start">
-<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-lg mr-4">
-<i class="ri-customer-service-2-line text-primary"></i>
-</div>
-<div>
-<h3 class="font-semibold mb-2">24/7 Support</h3>
-<p class="text-gray-300 text-sm">Round-the-clock technical assistance</p>
-</div>
-</div>
-<div class="flex items-start">
-<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-lg mr-4">
-<i class="ri-rocket-line text-primary"></i>
-</div>
-<div>
-<h3 class="font-semibold mb-2">Fast Delivery</h3>
-<p class="text-gray-300 text-sm">Efficient development and deployment</p>
-</div>
-</div>
-<div class="flex items-start">
-<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-lg mr-4">
-<i class="ri-shield-check-line text-primary"></i>
-</div>
-<div>
-<h3 class="font-semibold mb-2">Quality Assured</h3>
-<p class="text-gray-300 text-sm">Rigorous testing and quality control</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Featured Projects -->
-<section id="projects" class="py-20 projects-bg">
-<div class="container mx-auto px-6">
-<div class="text-center mb-16">
-<h2 class="section-title text-4xl font-bold mb-4">Featured <span class="text-primary">Projects</span></h2>
-<p class="text-grey-300 max-w-2xl mx-auto">Explore our portfolio of innovative solutions that have helped businesses transform their digital presence. Each project showcases our commitment to excellence and cutting-edge technology.</p>
-<div class="flex flex-wrap justify-center gap-4 mt-8">
-<span class="text-sm bg-slate-800 px-3 py-1 rounded-full">E-commerce</span>
-<span class="text-sm bg-slate-800 px-3 py-1 rounded-full">Mobile Apps</span>
-<span class="text-sm bg-slate-800 px-3 py-1 rounded-full">AI Solutions</span>
-<span class="text-sm bg-slate-800 px-3 py-1 rounded-full">Healthcare</span>
-<span class="text-sm bg-slate-800 px-3 py-1 rounded-full">Education</span>
-<span class="text-sm bg-slate-800 px-3 py-1 rounded-full">Hospitality</span>
-<span class="text-sm bg-slate-800 px-3 py-1 rounded-full">Real Estate</span>
-<span class="text-sm bg-slate-800 px-3 py-1 rounded-full">Fitness</span>
-<span class="text-sm bg-slate-800 px-3 py-1 rounded-full">IoT</span>
-<span class="text-sm bg-slate-800 px-3 py-1 rounded-full">Event Management</span>
-</div>
-</div>
-<div class="relative" x-data="{ currentSlide: 0, activeFilter: 'all' }">
-<div class="mb-8 flex flex-wrap justify-center gap-4">
-<button @click="activeFilter = 'all'" :class="{'bg-primary text-slate-900': activeFilter === 'all', 'bg-grey-800': activeFilter !== 'all'}" class="px-4 py-2 !rounded-button text-sm font-medium transition-colors whitespace-nowrap">All Projects</button>
-<button @click="activeFilter = 'web'" :class="{'bg-primary text-slate-900': activeFilter === 'web', 'bg-slate-800': activeFilter !== 'web'}" class="px-4 py-2 !rounded-button text-sm font-medium transition-colors whitespace-nowrap">Web Development</button>
-<button @click="activeFilter = 'mobile'" :class="{'bg-primary text-slate-900': activeFilter === 'mobile', 'bg-slate-800': activeFilter !== 'mobile'}" class="px-4 py-2 !rounded-button text-sm font-medium transition-colors whitespace-nowrap">Mobile Apps</button>
-<button @click="activeFilter = 'ai'" :class="{'bg-primary text-slate-900': activeFilter === 'ai', 'bg-slate-800': activeFilter !== 'ai'}" class="px-4 py-2 !rounded-button text-sm font-medium transition-colors whitespace-nowrap">AI & ML</button>
-<button @click="activeFilter = 'iot'" :class="{'bg-primary text-slate-900': activeFilter === 'iot', 'bg-slate-800': activeFilter !== 'iot'}" class="px-4 py-2 !rounded-button text-sm font-medium transition-colors whitespace-nowrap">IoT Solutions</button>
-</div>
-<div class="overflow-hidden">
-<div class="flex transition-transform duration-500 ease-in-out" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
-<!-- Project 1 -->
-<div class="project-card flex-shrink-0 w-full sm:w-96 border border-slate-700 rounded-lg overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=futuristic%20e-commerce%20website%20interface%20on%20multiple%20devices%2C%20modern%20UI%20design%20with%20product%20showcase%2C%20dark%20theme%20with%20blue%20accents%2C%20professional%20web%20design%2C%20clean%20layout%2C%20high-tech%20shopping%20experience&width=400&height=300&seq=3&orientation=landscape" alt="E-commerce Platform" class="w-full h-48 object-cover">
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">Himalayan Craft E-commerce</h3>
-<p class="text-gray-300 mb-4">A modern e-commerce platform for local artisans to showcase and sell their handcrafted products globally.</p>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">React</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Node.js</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">MongoDB</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">AWS</span>
-</div>
-<a href="#" class="inline-flex items-center text-primary">View Project<i class="ri-external-link-line ml-2"></i></a>
-</div>
-</div>
-<!-- Project 2 -->
-<div class="project-card flex-shrink-0 w-full sm:w-96 border border-slate-700 rounded-lg overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=futuristic%20mobile%20app%20interface%20for%20travel%20booking%2C%20showing%20mountain%20destinations%2C%20modern%20UI%20with%20map%20integration%2C%20dark%20theme%20with%20yellow%20accents%2C%20sleek%20design%2C%20travel%20planning%20application&width=400&height=300&seq=4&orientation=landscape" alt="Travel App" class="w-full h-48 object-cover">
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">Pokhara Explorer App</h3>
-<p class="text-gray-300 mb-4">A comprehensive travel companion app for tourists visiting Pokhara, featuring interactive maps and local experiences.</p>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Flutter</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Firebase</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Google Maps API</span>
-</div>
-<a href="#" class="inline-flex items-center text-primary">View Project<i class="ri-external-link-line ml-2"></i></a>
-</div>
-</div>
-<!-- Project 3 -->
-<div class="project-card flex-shrink-0 w-full sm:w-96 border border-slate-700 rounded-lg overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=futuristic%20AI%20dashboard%20with%20data%20visualization%2C%20machine%20learning%20analytics%20interface%2C%20neural%20network%20representation%2C%20dark%20theme%20with%20cyan%20and%20yellow%20accents%2C%20business%20intelligence%20platform%2C%20high-tech%20monitoring%20system&width=400&height=300&seq=5&orientation=landscape" alt="AI Dashboard" class="w-full h-48 object-cover">
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">AgriTech AI Platform</h3>
-<p class="text-gray-300 mb-4">An AI-powered platform that helps local farmers optimize crop yields through predictive analytics and smart monitoring.</p>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Python</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">TensorFlow</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Django</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">IoT</span>
-</div>
-<a href="#" class="inline-flex items-center text-primary">View Project<i class="ri-external-link-line ml-2"></i></a>
-</div>
-</div>
-<!-- Project 4 -->
-<div class="project-card flex-shrink-0 w-full sm:w-96 border border-slate-700 rounded-lg overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=futuristic%20healthcare%20application%20interface%20showing%20patient%20monitoring%20dashboard%2C%20telemedicine%20consultation%20screen%2C%20medical%20data%20visualization%2C%20dark%20theme%20with%20blue%20and%20green%20accents%2C%20professional%20healthcare%20tech&width=400&height=300&seq=6&orientation=landscape" alt="Healthcare App" class="w-full h-48 object-cover">
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">MediConnect Portal</h3>
-<p class="text-gray-300 mb-4">A comprehensive healthcare management system connecting patients with doctors for remote consultations and health monitoring.</p>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Vue.js</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Express</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">PostgreSQL</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">WebRTC</span>
-</div>
-<a href="#" class="inline-flex items-center text-primary">View Project<i class="ri-external-link-line ml-2"></i></a>
-</div>
-</div>
-<!-- Project 5 -->
-<div class="project-card flex-shrink-0 w-full sm:w-96 border border-slate-700 rounded-lg overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=futuristic%20education%20platform%20interface%20with%20virtual%20classroom%2C%20interactive%20learning%20modules%2C%203D%20educational%20content%2C%20dark%20theme%20with%20purple%20accents%2C%20modern%20e-learning%20system&width=400&height=300&seq=7&orientation=landscape" alt="Education Platform" class="w-full h-48 object-cover">
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">EduTech Learning Platform</h3>
-<p class="text-gray-300 mb-4">An innovative online learning platform with interactive courses, live sessions, and AI-powered personalized learning paths.</p>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Next.js</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">GraphQL</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">AWS</span>
-</div>
-<a href="#" class="inline-flex items-center text-primary">View Project<i class="ri-external-link-line ml-2"></i></a>
-</div>
-</div>
-<!-- Project 6 -->
-<div class="project-card flex-shrink-0 w-full sm:w-96 border border-slate-700 rounded-lg overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=futuristic%20restaurant%20management%20system%20interface%20with%20order%20tracking%2C%20inventory%20management%2C%20modern%20POS%20system%2C%20dark%20theme%20with%20orange%20accents%2C%20professional%20hospitality%20software&width=400&height=300&seq=8&orientation=landscape" alt="Restaurant Management" class="w-full h-48 object-cover">
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">RestaurantPro Manager</h3>
-<p class="text-gray-300 mb-4">A complete restaurant management solution with POS, inventory tracking, and customer relationship management.</p>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Angular</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">.NET Core</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">SQL Server</span>
-</div>
-<a href="#" class="inline-flex items-center text-primary">View Project<i class="ri-external-link-line ml-2"></i></a>
-</div>
-</div>
-<!-- Project 7 -->
-<div class="project-card flex-shrink-0 w-full sm:w-96 border border-slate-700 rounded-lg overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=futuristic%20real%20estate%20platform%20interface%20with%203D%20property%20tours%2C%20AR%20visualization%2C%20property%20management%20dashboard%2C%20dark%20theme%20with%20teal%20accents%2C%20modern%20real%20estate%20technology&width=400&height=300&seq=9&orientation=landscape" alt="Real Estate Platform" class="w-full h-48 object-cover">
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">PropertyTech Hub</h3>
-<p class="text-gray-400 mb-4">A modern real estate platform featuring virtual tours, AR property visualization, and smart property management tools.</p>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">React Native</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Node.js</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">MongoDB</span>
-</div>
-<a href="#" class="inline-flex items-center text-primary">View Project<i class="ri-external-link-line ml-2"></i></a>
-</div>
-</div>
-<!-- Project 8 -->
-<div class="project-card flex-shrink-0 w-full sm:w-96 border border-slate-700 rounded-lg overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=futuristic%20fitness%20tracking%20application%20interface%20with%20workout%20analytics%2C%20nutrition%20planning%2C%20health%20monitoring%20dashboard%2C%20dark%20theme%20with%20red%20accents%2C%20modern%20fitness%20technology&width=400&height=300&seq=10&orientation=landscape" alt="Fitness App" class="w-full h-48 object-cover">
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">FitTech Companion</h3>
-<p class="text-gray-400 mb-4">A comprehensive fitness tracking app with AI workout planning, nutrition guidance, and health analytics.</p>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Flutter</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Firebase</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">TensorFlow Lite</span>
-</div>
-<a href="#" class="inline-flex items-center text-primary">View Project<i class="ri-external-link-line ml-2"></i></a>
-</div>
-</div>
-<!-- Project 9 -->
-<div class="project-card flex-shrink-0 w-full sm:w-96 border border-slate-700 rounded-lg overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=futuristic%20smart%20home%20automation%20interface%20with%20IoT%20device%20control%2C%20energy%20management%2C%20security%20monitoring%2C%20dark%20theme%20with%20green%20accents%2C%20modern%20home%20technology&width=400&height=300&seq=11&orientation=landscape" alt="Smart Home" class="w-full h-48 object-cover">
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">SmartHome Hub</h3>
-<p class="text-gray-400 mb-4">An IoT-based smart home automation system for device control, energy management, and security monitoring.</p>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Vue.js</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Python</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">MQTT</span>
-</div>
-<a href="#" class="inline-flex items-center text-primary">View Project<i class="ri-external-link-line ml-2"></i></a>
-</div>
-</div>
-<!-- Project 10 -->
-<div class="project-card flex-shrink-0 w-full sm:w-96 border border-slate-700 rounded-lg overflow-hidden">
-<img src="https://readdy.ai/api/search-image?query=futuristic%20event%20management%20platform%20interface%20with%20virtual%20event%20hosting%2C%20ticket%20management%2C%20attendee%20analytics%2C%20dark%20theme%20with%20pink%20accents%2C%20modern%20event%20technology&width=400&height=300&seq=12&orientation=landscape" alt="Event Platform" class="w-full h-48 object-cover">
-<div class="p-6">
-<h3 class="text-xl font-semibold mb-2">EventTech Pro</h3>
-<p class="text-gray-400 mb-4">A comprehensive event management platform with virtual event hosting, ticketing, and attendee engagement tools.</p>
-<div class="flex flex-wrap gap-2 mb-6">
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">React</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">Node.js</span>
-<span class="text-xs bg-slate-800 px-2 py-1 rounded">WebRTC</span>
-</div>
-<a href="#" class="inline-flex items-center text-primary">View Project<i class="ri-external-link-line ml-2"></i></a>
-</div>
-</div>
-</div>
-</div>
-<button class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-slate-800 p-2 rounded-full" @click="currentSlide = (currentSlide - 1 + 10) % 10">
-<i class="ri-arrow-left-s-line text-2xl"></i>
-</button>
-<button class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-slate-800 p-2 rounded-full" @click="currentSlide = (currentSlide + 1) % 10">
-<i class="ri-arrow-right-s-line text-2xl"></i>
-</button>
-<div class="flex justify-center mt-8 space-x-2">
-<template x-for="(slide, index) in 10" :key="index">
-<button @click="currentSlide = index" :class="{'bg-primary': currentSlide === index, 'bg-slate-700': currentSlide !== index}" class="w-3 h-3 rounded-full transition-colors duration-300"></button>
-</template>
-</div>
-</div>
-</div>
-</section>
-<!-- Why Choose Us -->
-<section class="py-20 bg-slate-950 relative overflow-hidden">
-<div class="absolute inset-0 opacity-10">
-<div class="absolute top-0 left-0 w-64 h-64 bg-primary rounded-full filter blur-3xl"></div>
-<div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-500 rounded-full filter blur-3xl"></div>
-</div>
-<div class="container mx-auto px-6 relative z-10">
-<div class="text-center mb-16">
-<h2 class="section-title text-4xl font-bold mb-4">Why <span class="text-primary">Choose Us</span></h2>
-<p class="text-gray-300 max-w-2xl mx-auto">We combine local expertise with global standards to deliver exceptional digital solutions.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Reason 1 -->
-<div class="bg-purple-300 p-8 rounded-lg border border-slate-800 floating">
-<div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-6">
-<i class="ri-map-pin-line ri-xl text-primary"></i>
-</div>
-<h3 class="text-xl font-semibold mb-4 text-primary">Local Expertise</h3>
-<p class="text-gray-200">Based in Pokhara, we understand the local market and cultural nuances, allowing us to create solutions that resonate with your target audience.</p>
-</div>
-<!-- Reason 2 -->
-<div class="bg-green-700 p-8 rounded-lg border border-slate-800 floating" style="animation-delay: 0.2s;">
-<div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-6">
-<i class="ri-code-s-slash-line ri-xl text-primary"></i>
-</div>
-<h3 class="text-xl font-semibold mb-4 text-primary">Python-Powered Solutions</h3>
-<p class="text-gray-300">We leverage the power and flexibility of Python to build scalable, efficient, and maintainable software solutions that grow with your business.</p>
-</div>
-<!-- Reason 3 -->
-<div class="bg-blue-700 p-8 rounded-lg border border-slate-800 floating" style="animation-delay: 0.4s;">
-<div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-20 rounded-full mb-6">
-<i class="ri-global-line ri-xl text-primary"></i>
-</div>
-<h3 class="text-xl font-semibold mb-4 text-primary">Global Standards</h3>
-<p class="text-gray-300">While we're locally based, our work adheres to international best practices and quality standards, ensuring world-class solutions for our clients.</p>
-</div>
-</div>
-<div class="mt-16">
-<div class="bg-orange-700 p-8 rounded-lg border border-slate-800">
-<div class="flex flex-col md:flex-row items-center justify-between">
-<div class="md:w-2/3 mb-8 md:mb-0">
-<h3 class="text-2xl font-semibold mb-4">Ready to transform your digital presence?</h3>
-<p class="text-gray-300">Let's collaborate to bring your vision to life with our innovative solutions.</p>
-</div>
-<a href="#contact" class="bg-primary text-slate-900 px-8 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap text-lg">Get Started Today</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Contact Section -->
-<section id="contact" class="py-20 bg-purple-300">
-<div class="container mx-auto px-6">
-<div class="text-center mb-16">
-<h2 class="section-title text-4xl font-bold mb-4">Get in <span class="text-primary">Touch</span></h2>
-<p class="text-gray-300 max-w-2xl mx-auto">Have a project in mind? Reach out to us and let's discuss how we can help bring your ideas to life.</p>
-</div>
-<div class="flex flex-col lg:flex-row gap-12">
-<div class="lg:w-1/2">
-<div class="glassmorphism rounded-lg p-8">
-<h3 class="text-2xl font-semibold mb-6">Send us a message</h3>
-<form>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-<div>
-<label for="name" class="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
-<input type="text" id="name" class="w-full bg-slate-800 border-none rounded p-3 text-white focus:ring-2 focus:ring-primary glow-input" placeholder="Ramraja">
-</div>
-<div>
-<label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
-<input type="email" id="email" class="w-full bg-slate-800 border-none rounded p-3 text-white focus:ring-2 focus:ring-primary glow-input" placeholder="bastakotiramraja@gmail.com">
-</div>
-</div>
-<div class="mb-6">
-<label for="subject" class="block text-sm font-medium text-gray-400 mb-2">Subject</label>
-<input type="text" id="subject" class="w-full bg-slate-800 border-none rounded p-3 text-white focus:ring-2 focus:ring-primary glow-input" placeholder="Project Inquiry">
-</div>
-<div class="mb-6">
-<label for="message" class="block text-sm font-medium text-gray-400 mb-2">Message</label>
-<textarea id="message" rows="5" class="w-full bg-slate-800 border-none rounded p-3 text-white focus:ring-2 focus:ring-primary glow-input" placeholder="Tell us about your project..."></textarea>
-</div>
-<div class="mb-6">
-<label class="flex items-center">
-<input type="checkbox" class="custom-checkbox">
-<span class="text-sm text-gray-400">I agree to the privacy policy and terms of service</span>
-</label>
-</div>
-<button type="submit" class="w-full bg-primary text-slate-900 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Send Message</button>
-</form>
-</div>
-</div>
-<div class="lg:w-1/2">
-<div class="h-64 mb-8 rounded-lg overflow-hidden">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3514.444769082919!2d84.0424822!3d28.1917164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995950e6ee4369b%3A0x991388524c421e95!2sPython%20Tech%20Com%20Nepal%20Pvt.%20Ltd.!5e0!3m2!1sen!2snp!4v1715071234567!5m2!1sen!2snp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
-<div class="glassmorphism rounded-lg p-8">
-<h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
-<div class="space-y-6">
-<div class="flex items-start">
-<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-lg mr-4">
-<i class="ri-map-pin-line text-primary"></i>
-</div>
-<div>
-<h4 class="font-medium mb-1">Our Location</h4>
-<p class="text-gray-400">Pokhara-26, Baraldanda, Kaski, Nepal</p>
-</div>
-</div>
-<div class="flex items-start">
-<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-lg mr-4">
-<i class="ri-mail-line text-primary"></i>
-</div>
-<div>
-<h4 class="font-medium mb-1">Email Us</h4>
-<p class="text-gray-400">info@ptcnepal.com.np</p>
-</div>
-</div>
-<div class="flex items-start">
-<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-lg mr-4">
-<i class="ri-phone-line text-primary"></i>
-</div>
-<div>
-<h4 class="font-medium mb-1">Call / whatsapp Us</h4>
-<p class="text-gray-400">+977 9856020179</p>
-</div>
-</div>
-<div class="flex items-start">
-<div class="w-10 h-10 flex items-center justify-center bg-primary bg-opacity-20 rounded-lg mr-4">
-<i class="ri-time-line text-primary"></i>
-</div>
-<div>
-<h4 class="font-medium mb-1">Working Hours</h4>
-<p class="text-gray-400">Mon - Fri: 9:00 AM - 6:00 PM</p>
-</div>
-</div>
-</div>
-<div class="mt-8">
-<h4 class="font-medium mb-4">Follow Us</h4>
-<div class="flex space-x-4">
-<a href="https://facebook.com/ptcnepal" target="_blank" rel="noopener noreferrer" class="w-10 h-10 flex items-center text-white justify-center bg-blue-800 rounded-full hover:bg-primary hover:text-white transition-colors">
-<i class="ri-facebook-fill"></i>
-</a>
-<a href="https://facebook.com/ptcnepal" target="_blank" rel="noopener noreferrer" class="w-10 h-10 flex items-center text-white justify-center bg-red-600 rounded-full hover:bg-gray-200 hover:text-white transition-colors">
-<i class="ri-youtube-fill"></i>
-</a>
-<a href="https://instagram.com/ptcnepal" target="_blank" rel="noopener noreferrer" class="w-10 h-10 flex items-center text white justify-center bg-pink-400 rounded-full hover:bg-pink-300 hover:text-slate-300 transition-colors">
-<i class="ri-instagram-fill"></i>
-</a>
-<a href="https://linkedin.com/company/ptcnepal" target="_blank" rel="noopener noreferrer" class="w-10 h-10 flex items-center text-white justify-center bg-green-700 rounded-full hover:bg-primary hover:text-slate-900 transition-colors">
-<i class="ri-whatsapp-fill"></i>
-</a>
-<a href="https://github.com/ptcnepal" target="_blank" rel="noopener noreferrer" class="w-10 h-10 flex items-center text-white justify-center bg-orange-200 rounded-full hover:bg-primary hover:text-grey-200 transition-colors">
-<i class="ri-twitter-x-fill"></i>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Footer -->
-<footer class="bg-blue-945 pt-16 pb-8">
-<div class="container mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-<div>
-<a href="#" class="inline-block mb-6">
-<img src="https://static.readdy.ai/image/da06f31665025fca89e117379cbb1dff/ef604ae08cc707f1fecfd581f69c9d4f.png" alt="PTC Nepal Logo" class="h-10 w-auto class="text-orange-600 text-bold mb-6> Python Tech Com Nepal Pvt. Ltd.</p>
-</a>
-<p class="text-gray-400 mb-6">Elevating Pokhara through innovative software solutions and cutting-edge technology.</p>
-<div class="flex space-x-4">
-<a href="https://facebook.com/ptcnepal" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-primary">
-<i class="ri-facebook-fill"></i>
-</a>
-<a href="https://twitter.com/ptcnepal" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:text-primary">
-<i class="ri-youtube-fill"></i>
-</a>
+<body class="font-sans bg-light">
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="mr-3 text-green-600 text-3xl">
+                    <i class="fas fa-computer"></i>
+                </div>
+                <a href="#" class="text-3xl font-bold text-primary">
+                    <span class="text-accent">PTC </span> Nepal
+                </a>
+            </div>
+            
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#" class="nav-link text-dark hover:text-accent transition">Home</a>
+                <a href="#services" class="nav-link text-dark hover:text-accent transition">Services</a>
+                <a href="#about" class="nav-link text-dark hover:text-accent transition">About</a>
+                <a href="#testimonials" class="nav-link text-dark hover:text-accent transition">Testimonials</a>
+                <a href="#contact" class="nav-link text-dark hover:text-accent transition">Contact</a>
+                <a href="tel:5145551234" class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition flex items-center">
+                    <i class="fas fa-phone mr-2"></i> +977 9856020179
+                </a>
+            </div>
+            
+            <button id="menu-toggle" class="md:hidden text-2xl text-dark">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full z-50 mt-12">
+            <div class="container mx-auto px-4 py-3 flex flex-col">
+                <a href="#" class="py-2 text-dark hover:text-accent">Home</a>
+                <a href="#services" class="py-2 text-dark hover:text-accent">Services</a>
+                <a href="#about" class="py-2 text-dark hover:text-accent">About</a>
+                <a href="#testimonials" class="py-2 text-dark hover:text-accent">Testimonials</a>
+                <a href="#contact" class="py-2 text-dark hover:text-accent">Contact</a>
+                <a href="tel:5145551234" class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition my-2 text-center">
+                    <i class="fas fa-phone mr-2"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </header>
 
-<a href="https://linkedin.com/company/ptcnepal" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:text-primary">
-<i class="ri-whatsapp-fill"></i>
-</a>
-<a href="https://instagram.com/ptcnepal" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-primary">
-<i class="ri-instagram-fill"></i>
-</a>
+    <!-- Hero Section with Video Background -->
+    <section class="hero-section">
+        <video autoplay muted loop class="hero-video">
+            <source src="https://media-hosting.imagekit.io/ef160de08e1f463c/856403-hd_1920_1080_24fps.mp4?Expires=1838150157&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=wRIO4vCivqsXJvMQqXQET0jaIy8hdh98LKHS9Peq0AbW341mCk4eF5GQCW9oLuBMYRKupLWYBtk0dtn~85BLsqq03LOP8Ol2mulFBCiqFl73xd3PSUSxd-~6fxZoi0cWfkWM~X7rJ1LVn60zwsfh4T-rPr7SgiabhrugiPfwfqbCjz5fGdU0bMp2RG8Vt8Sd4CSn0SE8y6rbsWW8Se6LfkFjoM9jiQPIbgzu0U1tWhKkHisVSCfb42iyZEF9eimL-UpT0v0IZ0x~~73jYn-uzGHllwyUZPTG9DZD4-ss9X61-E3KojCO7fiNw0gHjd8I5qg2h1zAPjKcCJFhaSU6Zw__" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content flex items-center justify-center h-full text-white">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+                    <span class="text-accent"> Complete</span> website & mobile app development Services  <span class="text-accent">in Pokhara</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.3s;">
+                    Building stunning, responsive website and mobile app that grows your brand and connect you with your audience online.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-6 animate-fade-in" style="animation-delay: 0.6s;">
+                    <a href="#contact" class="bg-accent hover:bg-orange-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition flex items-center justify-center">
+                        <i class="fas fa-envelope mr-2"></i> Get a Free Quote
+                    </a>
+                    <a href="tel:5145551234" class="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition flex items-center justify-center">
+                        <i class="fas fa-phone mr-2"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-secondary"> Services</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg text-dark max-w-3xl mx-auto">
+                    We offer a comprehensive range of IT services to meet all your personal and business technology needs.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+               <div class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300">
+    <div class="h-48 bg-primary flex items-center justify-center">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/TwLfHEO_SNs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="p-6">
+        <h3 class="text-xl font-bold mb-3 text-secondary">Website Development</h3>
+        <p class="text-dark mb-4">
+           Website development involves designing, coding, testing, and launching websites, focusing on user experience, responsiveness, performance, SEO, and functionality.
+    </div>
 </div>
-</div>
-<div>
-<h4 class="text-lg font-semibold mb-6">Quick Links</h4>
-<ul class="space-y-3">
-<li><a href="#home" class="text-gray-400 hover:text-primary">Home</a></li>
-<li><a href="#about" class="text-gray-400 hover:text-primary">About Us</a></li>
-<li><a href="#services" class="text-gray-400 hover:text-primary">Services</a></li>
-<li><a href="#projects" class="text-gray-400 hover:text-primary">Projects</a></li>
-<li><a href="#contact" class="text-gray-400 hover:text-primary">Contact</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-lg font-semibold mb-6">Services</h4>
-<ul class="space-y-3">
-<li><a href="#" class="text-gray-400 hover:text-primary">Website Development</a></li>
-<li><a href="#" class="text-gray-400 hover:text-primary">Mobile App Development</a></li>
-<li><a href="#" class="text-gray-400 hover:text-primary">AI & Machine Learning</a></li>
-<li><a href="#" class="text-gray-400 hover:text-primary">API Development</a></li>
-<li><a href="#" class="text-gray-400 hover:text-primary">Automation Solutions</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-lg font-semibold mb-6">Newsletter</h4>
-<p class="text-gray-400 mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
-<form class="mb-4">
-<div class="flex">
-<input type="email" placeholder="Your email address" class="w-full bg-slate-800 border-none rounded-l p-3 text-white focus:ring-2 focus:ring-primary">
-<button type="submit" class="bg-primary text-slate-900 px-4 !rounded-r-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Subscribe</button>
-</div>
-</form>
-<div class="flex items-center space-x-4">
-<div class="w-8 h-8 flex items-center justify-center">
-<i class="ri-visa-fill ri-lg"></i>
-</div>
-<div class="w-8 h-8 flex items-center justify-center">
-<i class="ri-mastercard-fill ri-lg"></i>
-</div>
-<div class="w-8 h-8 flex items-center justify-center">
-<i class="ri-paypal-fill ri-lg"></i>
-</div>
-<div class="w-8 h-8 flex items-center justify-center">
-<i class="ri-apple-fill ri-lg"></i>
-</div>
-</div>
-</div>
-</div>
-<div class="pt-8 border-t border-slate-800 text-center">
-<p class="text-gray-500">© 2025 PTC Nepal. All rights reserved. Built  <span class="text-red-500"></span> from Pokhara</p>
-</div>
-</div>
-</footer>
-<!-- Chat Bot -->
-<div class="fixed bottom-6 right-6 z-50">
-<button id="chatToggle" class="w-14 h-14 bg-primary rounded-full flex items-center justify-center pulse shadow-lg">
-<i class="ri-customer-service-2-fill ri-lg text-slate-900"></i>
-</button>
-<div id="chatContainer" class="chat-container absolute bottom-20 right-0 w-80 glassmorphism rounded-lg overflow-hidden shadow-2xl">
-<div class="bg-slate-800 p-4 flex items-center justify-between">
-<div class="flex items-center">
-<div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-3">
-<i class="ri-robot-fill text-slate-900"></i>
-</div>
-<div>
-<h4 class="font-medium">AI Assistant</h4>
-<span class="text-xs text-red-500">Offline</span>
-</div>
-</div>
-<button id="closeChat" class="text-gray-400 hover:text-white">
-<i class="ri-close-line ri-lg"></i>
-</button>
-</div>
-<div class="p-4 h-64 overflow-y-auto bg-blue-500">
-<div class="flex mb-4">
-<div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-<i class="ri-robot-fill text-slate-900 text-sm"></i>
-</div>
-<div class="bg-slate-800 rounded-lg rounded-tl-none p-3 max-w-[80%]">
-<p class="text-sm">Sorry, All of our live support agents are offline now. Plz call/whatsapp at: 977 9856020179</p>
-<span class="text-xs text-gray-500 mt-1 block">Have a great time </span>
-</div>
-</div>
-</div>
-<div class="p-4 border-t border-slate-700 bg-slate-800">
-<div class="flex">
-<input type="text" placeholder="Type your message..." class="w-full bg-slate-700 border-none rounded-l p-2 text-sm text-white focus:ring-2 focus:ring-primary">
-<button class="bg-primary text-slate-900 px-3 !rounded-r-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">
-<i class="ri-send-plane-fill"></i>
-</button>
-</div>
-</div>
-</div>
-</div>
-<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-// Typing animation
-const texts = ['Innovative Solutions', 'Digital Experiences', 'Future Technology', 'Smart Applications'];
-let textIndex = 0;
-const typingText = document.querySelector('.typing-text');
-function updateTypingText() {
-typingText.style.width = '0';
-typingText.textContent = texts[textIndex];
-typingText.style.animation = 'none';
-typingText.offsetHeight; // Trigger reflow
-typingText.style.animation = 'typing 3s steps(30, end) forwards';
-textIndex = (textIndex + 1) % texts.length;
-}
-updateTypingText();
-setInterval(updateTypingText, 4000);
-// Project filter functionality
-window.addEventListener('alpine:init', () => {
-Alpine.data('projectFilter', () => ({
-activeFilter: 'all',
-filterProjects(category) {
-this.activeFilter = category;
-// Reset slide position when filter changes
-this.currentSlide = 0;
-}
-}));
-});
-// Video mute toggle
-const muteToggle = document.getElementById('muteToggle');
-if (muteToggle) {
-muteToggle.addEventListener('click', function() {
-const icon = this.querySelector('i');
-if (icon.classList.contains('ri-volume-mute-line')) {
-icon.classList.remove('ri-volume-mute-line');
-icon.classList.add('ri-volume-up-line');
-} else {
-icon.classList.remove('ri-volume-up-line');
-icon.classList.add('ri-volume-mute-line');
-}
-});
-}
-// Chat toggle
-const chatToggle = document.getElementById('chatToggle');
-const chatContainer = document.getElementById('chatContainer');
-const closeChat = document.getElementById('closeChat');
-if (chatToggle && chatContainer && closeChat) {
-chatToggle.addEventListener('click', function() {
-chatContainer.classList.toggle('active');
-});
-closeChat.addEventListener('click', function() {
-chatContainer.classList.remove('active');
-});
-}
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function(e) {
-e.preventDefault();
-const target = document.querySelector(this.getAttribute('href'));
-if (target) {
-window.scrollTo({
-top: target.offsetTop - 80,
-behavior: 'smooth'
-});
-}
-});
-});
-// Dark mode toggle
-const darkModeToggle = document.getElementById('darkModeToggle');
-if (darkModeToggle) {
-// Check for saved theme preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-document.body.classList.add('light-mode');
-darkModeToggle.checked = true;
-}
-darkModeToggle.addEventListener('change', function() {
-if (this.checked) {
-document.body.classList.add('light-mode');
-localStorage.setItem('theme', 'light');
-} else {
-document.body.classList.remove('light-mode');
-localStorage.setItem('theme', 'dark');
-}
-});
-}
-});
-</script>
-</body>
+                
+                <!-- Service 2 -->
+               <div class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300">
+    <div class="h-48 bg-primary flex items-center justify-center">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/TwLfHEO_SNs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="p-6">
+        <h3 class="text-xl font-bold mb-3 text-secondary">Mobile App Development
+</h3>
+                        <p class="text-dark mb-4">
+                            Mobile app development involves designing, coding, testing, and deploying applications for Android and iOS, ensuring performance, usability, and responsiveness.                                       
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+               <div class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300">
+    <div class="h-48 bg-primary flex items-center justify-center">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/TwLfHEO_SNs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="p-6">
+        <h3 class="text-xl font-bold mb-3 text-secondary">Domain Registration
+</h3>
+                        <p class="text-dark mb-4">
+                            Domain registration is the process of purchasing a unique website name (URL) through a domain registrar for online identification and access.
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+               <div class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300">
+    <div class="h-48 bg-primary flex items-center justify-center">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/TwLfHEO_SNs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="p-6">
+        <h3 class="text-xl font-bold mb-3 text-secondary">Hosting Service</h3>
+                        <p class="text-dark mb-4">
+                            Hosting service provides space on a server to store website files, making them accessible online via the internet for users worldwide.
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+               <div class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300">
+    <div class="h-48 bg-primary flex items-center justify-center">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/TwLfHEO_SNs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="p-6">
+        <h3 class="text-xl font-bold mb-3 text-secondary">Social Media Management</h3>
+                        <p class="text-dark mb-4">
+                            Social media management involves creating, scheduling, analyzing, and engaging with content on platforms like Facebook, Instagram, and Twitter to grow online presence.
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300">
+    <div class="h-48 bg-primary flex items-center justify-center">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/TwLfHEO_SNs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="p-6">
+        <h3 class="text-xl font-bold mb-3 text-secondary">Software Development</h3>
+                        <p class="text-dark mb-4">
+                            Software development is the process of designing, coding, testing, and maintaining applications or systems to meet user or business requirements efficiently.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="bg-accent hover:bg-orange-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition inline-flex items-center">
+                    <i class="fas fa-envelope mr-2"></i> Get a Custom Quote for Your Project
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50 mt-20 md:mt-0">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <div class="relative h-96 w-full rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Plumber at work" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <h3 class="text-xl font-bold">11+ Years Experience</h3>
+                                <p>Serving modern and clean auto servicing services since 2020</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h2 class="text-2xl md:text-2xl text-orange-600 font-bold mb-3">About PTC Nepal</h2>
+                    <p class="text-lg text-red mb-6">
+                      Founded in 2025, PTC Nepal has been delivering exceptional web development services to individuals and businesses across Pokhara and beyond. Our team of skilled and dedicated developers is committed to providing high-quality digital solutions and outstanding customer support.
+
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="text-accent mr-4 mt-1">
+                                <i class="fas fa-check-circle text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-secondary">Certified & Experienced</h4>
+                                <p class="text-dark">Our developers are highly skilled and certified to ensure the best quality in every project.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-accent mr-4 mt-1">
+                                <i class="fas fa-check-circle text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-secondary">24/7 Support</h4>
+                                <p class="text-dark">We offer round-the-clock technical support to keep your website running smoothly at all times.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-accent mr-4 mt-1">
+                                <i class="fas fa-check-circle text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-secondary">Transparent Pricing</h4>
+                                <p class="text-dark">No hidden costs – we provide clear and upfront pricing for all our web development services.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition inline-flex items-center">
+                        <i class="fas fa-phone-alt mr-2"></i> Contact Us Today
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose PTC Nepal</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg max-w-3xl mx-auto">
+                    We go above and beyond to ensure your complete satisfaction with every service we provide to suppoet your business through Digitization .
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="text-center p-6">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Quality Workmanship</h3>
+                    <p>
+                        We take pride in our work and stand behind every job we complete with our satisfaction guarantee.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="text-center p-6">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Fair Pricing</h3>
+                    <p>
+                        Competitive rates with no hidden fees. We provide upfront pricing before starting any work.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="text-center p-6">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Always On Time</h3>
+                    <p>
+                        We value your time. Our developers  arrive promptly at the scheduled time, in uniform and ready to work.
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="text-center p-6">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">24/7 Support</h3>
+                    <p>
+                        Our friendly customer service team is available around the clock to answer your questions.
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="text-center p-6">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Modern Technology</h3>
+                    <p>
+                        We use state-of-the-art  and technology, to diagnose and solve Digitization issues efficiently for your need.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="text-center p-6">
+                    <div class="text-5xl mb-4">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">5-Star Service</h3>
+                    <p>
+                        Our many satisfied customers consistently rate us 5 stars for our professionalism and expertise.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-secondary">What Our Customers Say</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg text-dark max-w-3xl mx-auto">
+                    Don't just take our word for it - hear from our satisfied customers throughout Montreal.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-dark italic mb-6">
+                        "I needed urgent help with my website late on a Sunday night. PTC Nepal responded within 30 minutes and quickly resolved the issue. Their team was professional, knowledgeable, and ensured everything was running smoothly before finishing. Highly recommend their services!"
+
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jean Tremblay" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-secondary">Ramraja Bastakoti</h4>
+                            <p class="text-sm text-gray-600">Pokhara-26,</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-dark italic mb-6">
+                      "From the initial consultation to the final deliverable, the service was outstanding. PTC Nepal revamped my website and took the time to explain all the options available. The pricing was fair, and the work was completed on time. I will definitely work with them again."
+
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Marie Dubois" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-secondary">Bishnu Yadav</h4>
+                            <p class="text-sm text-gray-600">Birgunj</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-dark italic mb-6">
+                           "As a web development manager, I've worked with many agencies over the years. PTC Nepal stands out for their reliability, professionalism, and fair pricing. They've handled everything from urgent website fixes to complete redesigns for my business."
+
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="David Chen" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-secondary">Mahesh Shrestha</h4>
+                            <p class="text-sm text-gray-600">Nepal auto, Pokhara</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="text-accent font-semibold hover:underline transition inline-flex items-center">
+                    Read more reviews on Google <i class="fas fa-external-link-alt ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Banner -->
+    <section class="bg-accent text-white py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="text-3xl mr-4">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold">Web or App issue Emergency?</h3>
+                        <p>We're available 24/7 for emergency calls</p>
+                    </div>
+                </div>
+                <div>
+                    <a href="tel:5145551234" class="bg-white hover:bg-gray-100 text-accent px-6 py-3 rounded-lg text-lg font-semibold transition flex items-center">
+                        <i class="fas fa-phone mr-2"></i> Call Now: +977 9856020179
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-secondary">Contact Us</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
+                <p class="text-lg text-dark max-w-3xl mx-auto">
+                    Have questions or need service? Fill out the form below or give us a call. We'll respond promptly.
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form id="contactForm" class="bg-white p-8 rounded-lg shadow-md">
+                        <div class="mb-6">
+                            <label for="name" class="block text-dark font-medium mb-2">Your Name*</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-dark font-medium mb-2">Email*</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="phone" class="block text-dark font-medium mb-2">Phone Number*</label>
+                            <input type="tel" id="phone" name="phone" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="service" class="block text-dark font-medium mb-2">Service Needed</label>
+                            <select id="service" name="service" 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="">Select a service...</option>
+                                <option value="emergency">Emergency website Repair</option>
+                                <option value="drain">Web Development</option>
+                                <option value="water-heater">Domain Registration Service</option>
+                                <option value="toilet">Mobile App Development</option>
+                                <option value="pipe">Hosting Setup/Replacement</option>
+                                <option value="bathroom">Server repair</option>
+                                <option value="other">Other Service</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-dark font-medium mb-2">Message*</label>
+                            <textarea id="message" name="message" rows="4" required 
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="h-full flex flex-col justify-between">
+                        <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+                            <h3 class="text-xl font-bold mb-4 text-secondary">Our Information</h3>
+                            <div class="space-y-4">
+                            <h6 class="font-semibold text-orange-500"> PTC Nepal Pvt. Ltd.</h6>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="text-primary text-xl mr-4">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+
+                                        <h4 class="font-semibold text-dark">Office Address</h4>
+                                        <p class="text-gray-600">Pokhara-26, Baraldanda, Kaski, Nepal</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="text-primary text-xl mr-4">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-dark">Phone</h4>
+                                        <p class="text-gray-600">+977 9856020179 <span class="text-accent">(24/7 Emergency Line)</p>
+                                        <p class="text-gray-600">+977 061411669/ 779/ 889 <span class="text-accent">(Business Hours)</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="text-primary text-xl mr-4">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-dark">Email</h4>
+                                        <p class="text-gray-600">info@ptcnepal.com.np</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="text-primary text-xl mr-4">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-dark">Hours</h4>
+                                        <p class="text-gray-600">Office: Monday-Friday, 7am-7pm</p>
+                                        <p class="text-gray-600">Emergency Services: 24/7</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-8 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold mb-4 text-secondary">Service Area</h3>
+                            <p class="mb-4 text-dark">We proudly serve all of Pokhara and surrounding areas including:</p>
+                            
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li><i class="fas fa-check-circle text-accent mr-2"></i> Pokhara</li>
+                                        <li><i class="fas fa-check-circle text-accent mr-2"></i> Baglung</li>
+                                        <li><i class="fas fa-check-circle text-accent mr-2"></i> Waling</li>
+                                        <li><i class="fas fa-check-circle text-accent mr-2"></i> Dumre</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li><i class="fas fa-check-circle text-accent mr-2"></i> Chitwan</li>
+                                        <li><i class="fas fa-check-circle text-accent mr-2"></i> Butwal</li>
+                                        <li><i class="fas fa-check-circle text-accent mr-2"></i> Birgunj</li>
+                                        <li><i class="fas fa-check-circle text-accent mr-2"></i> Gorkha</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <p class="mt-4 text-dark">Call to inquire about <span class="text-accent">service to your specific area.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">PTC Nepal Pvt. Ltd</h3>
+                    <p class="mb-4">
+                        Your trusted digital experts serving Pokhara and surrounding areas for over 5 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-accent transition">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-accent transition">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-accent transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-accent transition">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-accent transition">Home</a></li>
+                        <li><a href="#services" class="hover:text-accent transition">Services</a></li>
+                        <li><a href="#about" class="hover:text-accent transition">About Us</a></li>
+                        <li><a href="#testimonials" class="hover:text-accent transition">Testimonials</a></li>
+                        <li><a href="#contact" class="hover:text-accent transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-accent transition">Domain Registration</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Website Development</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Mobile App Development</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Server Setup/ Repair</a></li>
+                        <li><a href="#" class="hover:text-accent transition">SSL Certificate</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+                    <address class="not-italic">
+                        <p class="mb-2">Baraldanda-26, Pokhara</p>
+                        <p class="mb-2">1500 mtrs from Budibazar-Chowk</p>
+                        <p class="mb-4">
+                            <a href="tel:5145551234" class="hover:text-accent transition">+977 9856020179</a>
+                        </p>
+                        <p>
+                            <a href="mailto:info@montrealplumbingpros.com" class="hover:text-accent transition">info@ptcnepal.com.np</a>
+                        </p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p>&copy; <span id="currentYear"></span> Pokhara And Narayani Auto Engineering. All Rights Reserved.</p>
+                <div class="mt-4 text-sm">
+                    <a href="#" class="hover:text-accent transition mr-4">Privacy Policy</a>
+                    <a href="#" class="hover:text-accent transition mr-4">Terms of Service</a>
+                    <a href="#" class="hover:text-accent transition">Sitemap</a>
+                </div>
+            </div>
+                    <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-300">Developed by <a href="https://ptcnepal.com.np" class="text-primary hover:underline">PTC Nepal</a></p>
+
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div id="floating-cta" class="fixed bottom-6 right-6 z-90">
+        <a href="tel:+977 9861045610" class="bg-primary hover:bg-blue-700 text-green-500 rounded-full p-4 shadow-lg transition flex items-center justify-center animate-bounce">
+            <i class="fas fa-phone text-xl"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for anchor links with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    window.scrollTo({
+                        top: targetElement.offsetTop - headerHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Here you would typically send the form data to your server
+                // For demonstration, we'll just show an alert
+                alert('Thank you for your message! We will contact you shortly.');
+                this.reset();
+            });
+        }
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Animate floating CTA
+        const floatingCta = document.getElementById('floating-cta');
+        if (floatingCta) {
+            let isPulsing = false;
+            
+            function pulse() {
+                if (!isPulsing) {
+                    isPulsing = true;
+                    floatingCta.classList.add('animate-pulse');
+                    setTimeout(() => {
+                        floatingCta.classList.remove('animate-pulse');
+                        isPulsing = false;
+                    }, 2000);
+                }
+            }
+            
+            // Pulse every 15 seconds
+            setInterval(pulse, 15000);
+            pulse(); // Initial pulse
+        }
+    </body>
 </html>
