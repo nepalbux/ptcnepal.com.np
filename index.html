@@ -96,6 +96,17 @@
         .animate-fade-in {
             animation: fadeIn 1s ease-out forwards;
         }
+         /* Mobile menu styles */
+        #mobile-menu {
+            display: none;
+            left: 0;
+            top: 100%;
+            z-index: 1000;
+        }
+
+        #mobile-menu.block {
+            display: block;
+        }
     </style>
 </head>
 <body class="font-sans bg-light">
@@ -128,7 +139,7 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full z-50 mt-12">
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full z-50">
             <div class="container mx-auto px-4 py-3 flex flex-col">
                 <a href="#" class="py-2 text-dark hover:text-accent">Home</a>
                 <a href="#services" class="py-2 text-dark hover:text-accent">Services</a>
@@ -780,8 +791,10 @@ Website development involves designing, coding, testing, and launching websites,
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         
-        menuToggle.addEventListener('click', () => {
+       menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('block');
         });
         
         // Close mobile menu when clicking a link
@@ -789,6 +802,7 @@ Website development involves designing, coding, testing, and launching websites,
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
+                                mobileMenu.classList.remove('block');
             });
         });
         
