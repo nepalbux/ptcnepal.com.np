@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTC Nepal | Complete website services from Pokhara</title>
-    <meta name="description" content="Complete website and mobile app development services from Pokhara!">
+    <title>PTC Nepal Pvt. Ltd. | Complete web and app development services in Pokhara</title>
+    <link rel="icon" type="image/png" href="https://static.readdy.ai/image/da06f31665025fca89e117379cbb1dff/ef604ae08cc707f1fecfd581f69c9d4f.png">
+    <meta name="description" content="Professional web and app development services in Pokhara. We offer website development, mobile apps, domain registration, hosting, and digital solutions for your business.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -110,16 +111,24 @@
             max-height: 500px;
         }
         
-        /* Tap target sizing for mobile */
-        .tap-target {
-            min-height: 48px;
-            min-width: 48px;
-        }
-        
-        /* Prevent zoom on input focus */
-        @media screen and (max-width: 767px) {
-            input, select, textarea {
-                font-size: 16px !important;
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: auto;
+                min-height: 80vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .service-card, .testimonial-card {
+                margin-bottom: 1.5rem;
             }
         }
     </style>
@@ -128,12 +137,12 @@
     <!-- Header -->
     <header class="bg-white shadow-md fixed w-full z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <div class="mr-3 text-primary text-3xl">
-                    <i class="fas fa-tools"></i>
-                </div>
+            <div class="flex items-center space-x-3">
+                <a href="#" class="flex items-center">
+                    <img src="https://static.readdy.ai/image/da06f31665025fca89e117379cbb1dff/ef604ae08cc707f1fecfd581f69c9d4f.png" alt="PTC Nepal Logo" class="h-9 w-auto">
+                </a>
                 <a href="#" class="text-2xl md:text-3xl font-bold text-primary">
-                    <span class="text-accent">PTC </span> Nepal
+                    <span class="text-accent">PTC</span> Nepal
                 </a>
             </div>
             
@@ -143,25 +152,25 @@
                 <a href="#about" class="nav-link text-dark hover:text-accent transition">About</a>
                 <a href="#testimonials" class="nav-link text-dark hover:text-accent transition">Testimonials</a>
                 <a href="#contact" class="nav-link text-dark hover:text-accent transition">Contact</a>
-                <a href="tel:+9779861046510" class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition flex items-center tap-target">
+                <a href="tel:9856020179" class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition flex items-center">
                     <i class="fas fa-phone mr-2"></i> +977 9856020179
                 </a>
             </div>
             
-            <button id="menu-toggle" class="md:hidden text-2xl text-dark tap-target" aria-label="Toggle menu">
+            <button id="menu-toggle" class="md:hidden text-2xl text-dark focus:outline-none">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-lg absolute w-full z-50">
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-lg w-full">
             <div class="container mx-auto px-4 py-3 flex flex-col">
-                <a href="#" class="py-3 text-dark hover:text-accent border-b border-gray-100 tap-target">Home</a>
-                <a href="#services" class="py-3 text-dark hover:text-accent border-b border-gray-100 tap-target">Services</a>
-                <a href="#about" class="py-3 text-dark hover:text-accent border-b border-gray-100 tap-target">About</a>
-                <a href="#testimonials" class="py-3 text-dark hover:text-accent border-b border-gray-100 tap-target">Testimonials</a>
-                <a href="#contact" class="py-3 text-dark hover:text-accent border-b border-gray-100 tap-target">Contact</a>
-                <a href="tel:+9779861046510" class="bg-accent text-white px-4 py-3 rounded-lg hover:bg-orange-700 transition my-2 text-center tap-target">
+                <a href="#" class="py-3 px-2 text-dark hover:text-accent border-b border-gray-100">Home</a>
+                <a href="#services" class="py-3 px-2 text-dark hover:text-accent border-b border-gray-100">Services</a>
+                <a href="#about" class="py-3 px-2 text-dark hover:text-accent border-b border-gray-100">About</a>
+                <a href="#testimonials" class="py-3 px-2 text-dark hover:text-accent border-b border-gray-100">Testimonials</a>
+                <a href="#contact" class="py-3 px-2 text-dark hover:text-accent border-b border-gray-100">Contact</a>
+                <a href="tel:9856020179" class="bg-accent text-white px-4 py-3 rounded-lg hover:bg-orange-700 transition my-2 text-center">
                     <i class="fas fa-phone mr-2"></i> Call Now
                 </a>
             </div>
@@ -171,23 +180,23 @@
     <!-- Hero Section with Video Background -->
     <section class="hero-section">
         <video autoplay muted loop class="hero-video">
-            <source src="https://media-hosting.imagekit.io/97c873d2e99d46ce/Generated%20File%20May%2012,%202025%20-%209_59AM.mp4?Expires=1841631287&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=HfzaPEQwKcQUMSbxwlQNVM9Clgx67pbsFNLQO6xmdDPlpZmGg2qSvLqu6R-slKwqgFnsuF88moqvL4MGAXP2oKRAKevb9-ldEwhEbLWH5UVrijTjp9mtLOJuzYG4YD-knz4w7Hu9mcrUpMpPrcz~yYjFIdV4D2V0sxCPTerdlR3~YcxCI-xyuigXTNNVv0~DkrQebdcqgpuXFkJGxviGNwZ4FBvfKAXgxKb6j2lcuHw5WXr3q5dF04jwGI1XWRCiKx4F1pjIk~wYbIeyWD5usikpRxzJxFt-Qx3h2VieputmI8DCXMrbtvwyVJY4ZhtFt~4wJPWmf0SoMYd670fBBw__" type="video/mp4">
+            <source src="https://media-hosting.imagekit.io/ef160de08e1f463c/856403-hd_1920_1080_24fps.mp4?Expires=1838150157&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=wRIO4vCivqsXJvMQqXQET0jaIy8hdh98LKHS9Peq0AbW341mCk4eF5GQCW9oLuBMYRKupLWYBtk0dtn~85BLsqq03LOP8Ol2mulFBCiqFl73xd3PSUSxd-~6fxZoi0cWfkWM~X7rJ1LVn60zwsfh4T-rPr7SgiabhrugiPfwfqbCjz5fGdU0bMp2RG8Vt8Sd4CSn0SE8y6rbsWW8Se6LfkFjoM9jiQPIbgzu0U1tWhKkHisVSCfb42iyZEF9eimL-UpT0v0IZ0x~~73jYn-uzGHllwyUZPTG9DZD4-ss9X61-E3KojCO7fiNw0gHjd8I5qg2h1zAPjKcCJFhaSU6Zw__" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content flex items-center justify-center h-full text-white">
             <div class="container mx-auto px-4 text-center">
-                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-                    Professional web development Services <span class="text-accent">from Pokhara</span>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+                    <span class="text-accent">Complete</span> website & mobile app development Services <span class="text-accent">in Pokhara</span>
                 </h1>
-                <p class="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.3s;">
-                    A trusted web and mobile app development service
+                <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.3s;">
+                    Building stunning, responsive website and mobile app that grows your brand and connect you with your audience online.
                 </p>
                 <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-6 animate-fade-in" style="animation-delay: 0.6s;">
-                    <a href="#contact" class="bg-accent hover:bg-orange-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition flex items-center justify-center tap-target">
+                    <a href="#contact" class="bg-accent hover:bg-orange-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition flex items-center justify-center">
                         <i class="fas fa-envelope mr-2"></i> Get a Free Quote
                     </a>
-                    <a href="tel:+9779856020179" class="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition flex items-center justify-center tap-target">
+                    <a href="tel:9856020179" class="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition flex items-center justify-center">
                         <i class="fas fa-phone mr-2"></i> Call Now
                     </a>
                 </div>
