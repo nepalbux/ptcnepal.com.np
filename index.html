@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTC Nepal | Complete web development Service from Pokhara</title>
-    <meta name="description" content="Trusted web development services in Pokhara offering  website and mobile app development services. Call us anytime!">
+    <title>PTC Nepal | website and mobile development service from Pokhar</title>
+    <link rel="icon" href="https://media-hosting.imagekit.io/d6cdfe076f0a4de9/favicon.ico?Expires=1839342735&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=qikqGNJGlgOlcp5kSYmKnpohzxAaxrF7G5bXFumHDTy89K3fJPIVIF1aYG-Ko1repcnQl66EQzPE3GjYR3pNANiyNuDXedLGeLwYvBO11kG2Dda-nvjgbtBh2Qzys37BVlVXvpbBaDyATlWVWiwuAKvYm9VjSlKG6MQf0IlLfAGiWkC~un2UDpDhPe9VqPOXVqDlb9Fpc6J9gWiAhdpcJNgTKnVwJ5L~JrlH6Id~cK98TcOVlGngfNMOpsBz-DMp76hcKJ7jQZvxXzjuDWA16PJrqsMDtei82nQL8QEvNf9mfd0KyN7OsjHUUi7AE4r5jLUbY5c2DDYIo-8jabxH3w__" type="image/x-icon">
+    <meta name="description" content="Trusted website  and mobile appdevelopment services from Pokhara . Call us anytime!">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -30,8 +31,7 @@
         /* Custom CSS */
         .hero-section {
             position: relative;
-            height: 100vh;
-            min-height: 600px;
+            height: 99vh;
             overflow: hidden;
         }
         
@@ -58,7 +58,6 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            padding-top: 80px;
         }
         
         .service-card:hover {
@@ -98,29 +97,16 @@
         .animate-fade-in {
             animation: fadeIn 1s ease-out forwards;
         }
-        
-        /* Mobile menu animation */
-        .mobile-menu {
-            transition: all 0.3s ease;
-            max-height: 0;
-            overflow: hidden;
+         /* Mobile menu styles */
+        #mobile-menu {
+            display: none;
+            left: 0;
+            top: 100%;
+            z-index: 1000;
         }
-        
-        .mobile-menu.open {
-            max-height: 500px;
-        }
-        
-        /* Tap target sizing for mobile */
-        .tap-target {
-            min-height: 48px;
-            min-width: 48px;
-        }
-        
-        /* Prevent zoom on input focus */
-        @media screen and (max-width: 767px) {
-            input, select, textarea {
-                font-size: 16px !important;
-            }
+
+        #mobile-menu.block {
+            display: block;
         }
     </style>
 </head>
@@ -130,9 +116,10 @@
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
                 <div class="mr-3 text-primary text-3xl">
-                    <i class="fas fa-computer"></i>
-                </div>
-                <a href="#" class="text-2xl md:text-3xl font-bold text-primary">
+                    <!-- Logo -->
+        <a href="#" class="flex items-center gap-2 text-2xl font-['architectural'] text-primary" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <img src="https://media-hosting.imagekit.io/d6cdfe076f0a4de9/favicon.ico?Expires=1839342735&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=qikqGNJGlgOlcp5kSYmKnpohzxAaxrF7G5bXFumHDTy89K3fJPIVIF1aYG-Ko1repcnQl66EQzPE3GjYR3pNANiyNuDXedLGeLwYvBO11kG2Dda-nvjgbtBh2Qzys37BVlVXvpbBaDyATlWVWiwuAKvYm9VjSlKG6MQf0IlLfAGiWkC~un2UDpDhPe9VqPOXVqDlb9Fpc6J9gWiAhdpcJNgTKnVwJ5L~JrlH6Id~cK98TcOVlGngfNMOpsBz-DMp76hcKJ7jQZvxXzjuDWA16PJrqsMDtei82nQL8QEvNf9mfd0KyN7OsjHUUi7AE4r5jLUbY5c2DDYIo-8jabxH3w__" alt="Logo" class="w-10 h-10">                </div>
+                <a href="#" class="text-3xl font-bold text-primary">
                     <span class="text-accent">PTC </span> Nepal
                 </a>
             </div>
@@ -143,25 +130,25 @@
                 <a href="#about" class="nav-link text-dark hover:text-accent transition">About</a>
                 <a href="#testimonials" class="nav-link text-dark hover:text-accent transition">Testimonials</a>
                 <a href="#contact" class="nav-link text-dark hover:text-accent transition">Contact</a>
-                <a href="tel:+9779861046510" class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition flex items-center tap-target">
+                <a href="tel:5145551234" class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition flex items-center">
                     <i class="fas fa-phone mr-2"></i> +977 9856020179
                 </a>
             </div>
             
-            <button id="menu-toggle" class="md:hidden text-2xl text-dark tap-target" aria-label="Toggle menu">
+            <button id="menu-toggle" class="md:hidden text-2xl text-dark">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-lg absolute w-full z-50">
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full z-50">
             <div class="container mx-auto px-4 py-3 flex flex-col">
-                <a href="#" class="py-3 text-dark hover:text-accent border-b border-gray-100 tap-target">Home</a>
-                <a href="#services" class="py-3 text-dark hover:text-accent border-b border-gray-100 tap-target">Services</a>
-                <a href="#about" class="py-3 text-dark hover:text-accent border-b border-gray-100 tap-target">About</a>
-                <a href="#testimonials" class="py-3 text-dark hover:text-accent border-b border-gray-100 tap-target">Testimonials</a>
-                <a href="#contact" class="py-3 text-dark hover:text-accent border-b border-gray-100 tap-target">Contact</a>
-                <a href="tel:+9779856020179" class="bg-accent text-white px-4 py-3 rounded-lg hover:bg-orange-700 transition my-2 text-center tap-target">
+                <a href="#" class="py-2 text-dark hover:text-accent">Home</a>
+                <a href="#services" class="py-2 text-dark hover:text-accent">Services</a>
+                <a href="#about" class="py-2 text-dark hover:text-accent">About</a>
+                <a href="#testimonials" class="py-2 text-dark hover:text-accent">Testimonials</a>
+                <a href="#contact" class="py-2 text-dark hover:text-accent">Contact</a>
+                <a href="tel:5145551234" class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition my-2 text-center">
                     <i class="fas fa-phone mr-2"></i> Call Now
                 </a>
             </div>
@@ -171,23 +158,23 @@
     <!-- Hero Section with Video Background -->
     <section class="hero-section">
         <video autoplay muted loop class="hero-video">
-            <source src="https://media-hosting.imagekit.io/119c76106dde4374/Generated%20File%20May%2013,%202025%20-%209_56AM.mp4?Expires=1841717602&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=YjxTX6H2R~9FwK1raz4Hmm3m7xKwwXDpURHhw97NWvlkxNlHqf2BcsN4OxwEoChs3WAc~8riKUP7h6OpyctU7mFpxQy6qu1C5pbJAtPvaSUZHf9OABgzNyTG6AXtDTn25phLWBkw1MM096wBl98xbS8q5j87Uq5R13aC1Vc8yxQJr39ERSHc4QyQvGOtK0c2xj7~xFeT~3vwpkrjoF6zGf19FJjqEqRnbUPBrEFGayuzfqRFVxuurbkVFU-y-Gv-PjXG4HrT4FFVzQneeko~OJSUKg3zmG64tgpaASOVpwJ7TsS-sYdGm-qXmMxm8Tnk03y7MqmgfyIR15Vhdvmt7w__" type="video/mp4">
+            <source src="https://media-hosting.imagekit.io/9031f3fa08a045b2/Engine%20compressor%20check%20%20%20mechanic%20mh.juber%20Inamdar.mp4?Expires=1841403506&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=S~2eWx0~4izZG7dfD1JN7ztPvclwBKFBN6cOp7bacP9RUE-XaB5eGGc5rproRpA8H1ViIDuBvVmHLcTcYljOFlQeaTkIG8tljZgthi6wVR6a2SsMOVydyvNjM-KHnLIzAKsjFRiW5JRI1U~iV8wFILbVze5ghjDwvfdOCIUFpH9aW0mnsVynhktkUWiEmVj1CFfSHuKroLRN5CtfYcKAAkqlxd6stWCvYDT-Rx5riX9hZb3okWvQywm171ZFrCqokkgYNo8sZfBqolNq-rpbmbMpgz4LsQtooSidkw81ol806xZLt4TwivqzUQ2mWiZVtQuzCx5FMTYPUKmeWvkSkA__" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content flex items-center justify-center h-full text-white">
             <div class="container mx-auto px-4 text-center">
-                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-                    <span class="text-accent"> Professional</span> website development Services from <span class="text-accent"> Pokhara</span>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+                    <span class="text-accent"> Professional</span> website & mobile app development Services in  <span class="text-accent"> Pokhara</span>
                 </h1>
-                <p class="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.3s;">
+                <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.3s;">
                     Building stunning, responsive website and mobile app that grows your brand and connect you with your audience online.
                 </p>
                 <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-6 animate-fade-in" style="animation-delay: 0.6s;">
-                    <a href="#contact" class="bg-accent hover:bg-orange-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition flex items-center justify-center tap-target">
+                    <a href="#contact" class="bg-accent hover:bg-orange-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition flex items-center justify-center">
                         <i class="fas fa-envelope mr-2"></i> Get a Free Quote
                     </a>
-                    <a href="tel:+9779856020179" class="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition flex items-center justify-center tap-target">
+                    <a href="tel:5145551234" class="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition flex items-center justify-center">
                         <i class="fas fa-phone mr-2"></i> Call Now
                     </a>
                 </div>
@@ -199,113 +186,113 @@
     <section id="services" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-secondary">Our web development Services</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-secondary">Our Services</h2>
                 <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
-                <p class="text-lg text-purple-400 max-w-3xl mx-auto">
+                <p class="text-lg text-dark max-w-3xl mx-auto">
                     We offer a comprehensive range of IT services to meet all your personal and business technology needs.
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <a href="register-domain.html" class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300 block">
+                <div class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300">
                     <div class="h-48 bg-primary flex items-center justify-center text-6xl text-orange-400">
-                        <i class="fas fa-domain"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-3 text-secondary">Domain Registration</h3>
-                        <p class="text-dark mb-4">
-                            Domain registration is the process of purchasing a unique website name (URL) through a domain registrar for online identification and access.
-                        </p>
-                        <span class="text-accent font-semibold hover:underline transition">
-                            Register Domain <i class="fas fa-arrow-right ml-1"></i>
-                        </span>
-                    </div>
-                </a>
-                
-                <!-- Service 2 -->
-                <a href="website-development.html" class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300 block">
-                    <div class="h-48 bg-primary flex items-center justify-center text-6xl text-orange-500">
-                        <i class="fas fa-website"></i>
+                        <i class="fas fa-bus"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-3 text-secondary">Website Development</h3>
                         <p class="text-dark mb-4">
-                            Website development involves designing, coding, testing, and launching websites, focusing on user experience, responsiveness, performance, SEO, and functionality
+Website development involves designing, coding, testing, and launching websites, focusing on user experience, responsiveness, performance, SEO, and functionality.
+
                         </p>
-                        <span class="text-accent font-semibold hover:underline transition">
-                            Develop Your Website <i class="fas fa-arrow-right ml-1"></i>
-                        </span>
+                        <a href="#" class="text-accent font-semibold hover:underline transition">
+                            Learn More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
                     </div>
-                </a>
+                </div>
                 
-                <!-- Service 3 -->
-                <a href="app-develoment.html" class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300 block">
-                    <div class="h-48 bg-primary flex items-center justify-center text-6xl text-red-600">
-                        <i class="fas fa-mobile"></i>
+                <!-- Service 2 -->
+                <div class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-primary flex items-center justify-center text-6xl text-orange-500">
+                        <i class="fas fa-car"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-3 text-secondary">Mobile App Development</h3>
                         <p class="text-dark mb-4">
-                            Mobile app development involves designing, coding, testing, and deploying applications for Android and iOS, ensuring performance, usability, and responsiveness.
-                        </p>
-                        <span class="text-accent font-semibold hover:underline transition">
-                            Build Your App <i class="fas fa-arrow-right ml-1"></i>
-                        </span>
+                            Mobile app development involves designing, coding, testing, and deploying applications for Android and iOS, ensuring performance, usability, and responsiveness.           
+                                         </p>
+                        <a href="#" class="text-accent font-semibold hover:underline transition">
+                            Learn More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
                     </div>
-                </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-primary flex items-center justify-center text-6xl text-red-600">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-secondary">Domain Registration</h3>
+                        <p class="text-dark mb-4">
+                            Domain registration is the process of purchasing a unique website name (URL) through a domain registrar for online identification and access.</p>
+                        <a href="#" class="text-accent font-semibold hover:underline transition">
+                            Learn More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
                 
                 <!-- Service 4 -->
-                <a href="hosting-services.html" class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300 block">
+                <div class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300">
                     <div class="h-48 bg-primary flex items-center justify-center text-6xl text-green-300">
-                        <i class="fas fa-hosting"></i>
+                        <i class="fas fa-tools"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-3 text-secondary">Hosting Service</h3>
                         <p class="text-dark mb-4">
                             Hosting service provides space on a server to store website files, making them accessible online via the internet for users worldwide.
                         </p>
-                        <span class="text-accent font-semibold hover:underline transition">
-                            Buy Hosting Package <i class="fas fa-arrow-right ml-1"></i>
-                        </span>
+                        <a href="#" class="text-accent font-semibold hover:underline transition">
+                            Learn More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
                     </div>
-                </a>
+                </div>
                 
                 <!-- Service 5 -->
-                <a href="social-media.html" class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300 block">
+                <div class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300">
                     <div class="h-48 bg-primary flex items-center justify-center text-6xl text-green-400">
-                        <i class="fas fa-social media"></i>
+                        <i class="fas fa-motorcycle"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-3 text-secondary">Social Media Management</h3>
                         <p class="text-dark mb-4">
                             Social media management involves creating, scheduling, analyzing, and engaging with content on platforms like Facebook, Instagram, and Twitter to grow online presence.
                         </p>
-                        <span class="text-accent font-semibold hover:underline transition">
-                            Manage Your Social Media <i class="fas fa-arrow-right ml-1"></i>
-                        </span>
+                        <a href="#" class="text-accent font-semibold hover:underline transition">
+                            Learn More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
                     </div>
-                </a>
+                </div>
                 
                 <!-- Service 6 -->
-                <a href="develop-software.html" class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300 block">
+                <div class="service-card bg-light rounded-lg overflow-hidden shadow-md transition duration-300">
                     <div class="h-48 bg-primary flex items-center justify-center text-6xl text-green-600">
-                        <i class="fas fa-software"></i>
+                        <i class="fas fa-bath"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-3 text-secondary">Software Development</h3>
                         <p class="text-dark mb-4">
                             Software development is the process of designing, coding, testing, and maintaining applications or systems to meet user or business requirements efficiently.
                         </p>
-                        <span class="text-accent font-semibold hover:underline transition">
-                            Order For Development <i class="fas fa-arrow-right ml-1"></i>
-                        </span>
+                        <a href="#" class="text-accent font-semibold hover:underline transition">
+                            Learn More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
                     </div>
-                </a>
+                </div>
             </div>
             
             <div class="text-center mt-12">
-                <a href="#contact" class="bg-accent hover:bg-orange-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition inline-flex items-center tap-target">
+                <a href="#contact" class="bg-accent hover:bg-orange-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition inline-flex items-center">
                     <i class="fas fa-envelope mr-2"></i> Get a Custom Quote for Your Project
                 </a>
             </div>
@@ -313,28 +300,27 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-gray-50">
+    <section id="about" class="py-16 bg-gray-50 mt-20 md:mt-0">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-1/2">
                     <div class="relative h-96 w-full rounded-lg overflow-hidden shadow-lg">
                         <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
-                             alt="web developer" 
+                             alt="Plumber at work" 
                              class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-6">
                             <div class="text-white">
-                                <h3 class="text-xl font-bold">12+ Years Experience</h3>
-                                <p>"Delivering modern and reliable IT solutions since 2012."</p>
+                                <h3 class="text-xl font-bold">20+ Years Experience</h3>
+                                <p>Serving modern and clean auto servicing services since 2020</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="lg:w-1/2">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-secondary">About PTC Nepal</h2>
-                    <p class="text-lg text-dark mb-6">
-                        Founded in 2012, PTC Nepal has been delivering exceptional web development services to individuals and businesses across Pokhara and beyond. Our team of skilled and dedicated developers is committed to providing high-quality digital solutions and outstanding customer support.
-                    </p>
+                    <h2 class="text-2xl md:text-2xl text-orange-500 font-bold mb-3">About PTC Nepal</h2>
+                    <p class="text-lg text-red mb-6">
+                        Founded in 2020, PTC Nepal has been delivering exceptional web development services to individuals and businesses across Pokhara and beyond. Our team of skilled and dedicated developers is committed to providing high-quality digital solutions and outstanding customer support. </p>
                     
                     <div class="space-y-4 mb-8">
                         <div class="flex items-start">
@@ -352,8 +338,8 @@
                                 <i class="fas fa-check-circle text-2xl"></i>
                             </div>
                             <div>
-                                <h4 class="text-lg font-semibold text-secondary">24/7 Transparent Pricing</h4>
-                                <p class="text-dark">No hidden costs – we provide clear and upfront pricing for all our web development services.</p>
+                                <h4 class="text-lg font-semibold text-secondary">24/7 Support</h4>
+                                <p class="text-dark">We offer round-the-clock technical support to keep your website running smoothly at all times.</p>
                             </div>
                         </div>
                         
@@ -362,13 +348,13 @@
                                 <i class="fas fa-check-circle text-2xl"></i>
                             </div>
                             <div>
-                                <h4 class="text-lg font-semibold text-secondary">24/7 Support</h4>
-                                <p class="text-dark">We offer round-the-clock technical support to keep your website running smoothly at all times.</p>
+                                <h4 class="text-lg font-semibold text-secondary">Transparent Pricing</h4>
+                                <p class="text-dark">No hidden costs – we provide clear and upfront pricing for all our web development services.</p>
                             </div>
                         </div>
                     </div>
                     
-                    <a href="#contact" class="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition inline-flex items-center tap-target">
+                    <a href="#contact" class="bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition inline-flex items-center">
                         <i class="fas fa-phone-alt mr-2"></i> Contact Us Today
                     </a>
                 </div>
@@ -380,7 +366,7 @@
     <section class="py-16 bg-primary text-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose PTC Nepal?</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose PTC Nepal</h2>
                 <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
                 <p class="text-lg max-w-3xl mx-auto">
                     We go above and beyond to ensure your complete satisfaction with every service we provide to support your business through digitization.
@@ -395,7 +381,8 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Quality Workmanship</h3>
                     <p>
-                        We take pride in our work and stand behind every job we complete with our satisfaction guarantee.
+                     Competitive rates with no hidden fees. We provide upfront pricing before starting any work.
+
                     </p>
                 </div>
                 
@@ -417,7 +404,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Always On Time</h3>
                     <p>
-                        We value your time. Our technicians experts arrive promptly at the scheduled time, to finalize your projects.
+                        We value your time. Our technicians  arrive promptly at the scheduled time, in uniform and ready to work.
                     </p>
                 </div>
                 
@@ -437,9 +424,10 @@
                     <div class="text-5xl mb-4">
                         <i class="fas fa-tools"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Modern Technology</h3>
+                    <h3 class="text-xl font-bold mb-3">Modern Equipment</h3>
                     <p>
-                        We use state-of-the-art technology to diagnose and solve development issues efficiently.
+                    We use state-of-the-art tools, machine and technology to diagnose and solve engine issues efficiently.
+
                     </p>
                 </div>
                 
@@ -481,15 +469,16 @@
                         </div>
                     </div>
                     <p class="text-dark italic mb-6">
-                        ""I needed urgent help with my website late on a Sunday night. PTC Nepal responded within 30 minutes and quickly resolved the issue. Their team was professional, knowledgeable, and ensured everything was running smoothly before finishing. Highly recommend their services!"
+                    "I needed urgent help with my website late on a Sunday night. PTC Nepal responded within 30 minutes and quickly resolved the issue. Their team was professional, knowledgeable, and ensured everything was running smoothly before finishing. Highly recommend their services!"
+
                     </p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ramraja Bastakoti" class="w-full h-full object-cover">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jean Tremblay" class="w-full h-full object-cover">
                         </div>
                         <div>
-                            <h4 class="font-semibold text-secondary">Dipak Dhungana</h4>
-                            <p class="text-sm text-gray-600">Sathiko Cafe, Pokhara-26</p>
+                            <h4 class="font-semibold text-secondary">Dipal Dhungana</h4>
+                            <p class="text-sm text-gray-600">Sathiko Cafe, Pokhara-26,</p>
                         </div>
                     </div>
                 </div>
@@ -506,11 +495,12 @@
                         </div>
                     </div>
                     <p class="text-dark italic mb-6">
-"From the initial consultation to the final deliverable, the service was outstanding. PTC Nepal revamped my website and took the time to explain all the options available. The pricing was fair, and the work was completed on time. I will definitely work with them again."
+                        "From the initial consultation to the final deliverable, the service was outstanding. PTC Nepal revamped my website and took the time to explain all the options available. The pricing was fair, and the work was completed on time. I will definitely work with them again."
+
                     </p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Bishnu Yadav" class="w-full h-full object-cover">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Marie Dubois" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-semibold text-secondary">Bishnu Yadav</h4>
@@ -531,23 +521,23 @@
                         </div>
                     </div>
                     <p class="text-dark italic mb-6">
-"As a web development manager, I've worked with many agencies over the years. PTC Nepal stands out for their reliability, professionalism, and fair pricing. They've handled everything from urgent website fixes to complete redesigns for my business."
+                    "As a web development manager, I've worked with many agencies over the years. PTC Nepal stands out for their reliability, professionalism, and fair pricing. They've handled everything from urgent website fixes to complete redesigns for my business."
 
                     </p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
-                            <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Mahesh Shrestha" class="w-full h-full object-cover">
+                            <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="David Chen" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-semibold text-secondary">Mahesh Shrestha</h4>
-                            <p class="text-sm text-gray-600">Nepal Auto, Kathmandu</p>
+                            <p class="text-sm text-gray-600">Nepal auto, Pokhara</p>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="text-center mt-12">
-                <a href="https://www.google.com/search?q=PTC+Nepal+reviews" target="_blank" rel="noopener noreferrer" class="text-green-500 font-semibold hover:underline transition inline-flex items-center tap-target">
+                <a href="#" class="text-green-400 font-semibold hover:underline transition inline-flex items-center">
                     Read more reviews on Google <i class="fas fa-external-link-alt ml-2"></i>
                 </a>
             </div>
@@ -563,12 +553,12 @@
                         <i class="fas fa-exclamation-triangle"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold">Need Our Service Immedeatly?</h3>
+                        <h3 class="text-xl font-bold">Web or App issue Emergency?</h3>
                         <p>We're available 24/7 for emergency calls</p>
                     </div>
                 </div>
                 <div>
-                    <a href="tel:+9779856020179" class="bg-white hover:bg-gray-100 text-accent px-6 py-3 rounded-lg text-lg font-semibold transition flex items-center tap-target">
+                    <a href="tel:5145551234" class="bg-white hover:bg-gray-100 text-accent px-6 py-3 rounded-lg text-lg font-semibold transition flex items-center">
                         <i class="fas fa-phone mr-2"></i> Call Now: +977 9856020179
                     </a>
                 </div>
@@ -580,7 +570,7 @@
     <section id="contact" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-secondary">Contact Us</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-accent">Contact Us</h2>
                 <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
                 <p class="text-lg text-dark max-w-3xl mx-auto">
                     Have questions or need service? Fill out the form below or give us a call. We'll respond promptly.
@@ -613,13 +603,13 @@
                             <select id="service" name="service" 
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
                                 <option value="">Select a service...</option>
-                                <option value="emergency">Domain Registration</option>
-                                <option value="drain">Website Development</option>
-                                <option value="water-heater">Mobile App Development</option>
-                                <option value="toilet">Server Setup</option>
-                                <option value="pipe">Redesign for website</option>
-                                <option value="bathroom">SSL Certificate</option>
-                                <option value="other">Social Medai Managent</option>
+                                <option value="emergency">Web or App Issue Emergency?</option>
+                                <option value="drain">Web oor App Development</option>
+                                <option value="water-heater">Domain Registration</option>
+                                <option value="toilet">Mobile App Development</option>
+                                <option value="pipe">Hosting Setup</option>
+                                <option value="bathroom">Server repair</option>
+                                <option value="other">Other Service</option>
                             </select>
                         </div>
                         
@@ -629,7 +619,7 @@
                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
                         </div>
                         
-                        <button type="submit" class="w-full bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition tap-target">
+                        <button type="submit" class="w-full bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition">
                             Send Message
                         </button>
                     </form>
@@ -647,7 +637,7 @@
                                     </div>
                                     <div>
                                         <h4 class="font-semibold text-dark">Office Address</h4>
-                                        <p class="text-gray-600">Pokhara-26, Baraldanda, Kaski, Nepal</p>
+                                        <p class="text-gray-600">Pokhara-26, Baraldanda, Nepal</p>
                                     </div>
                                 </div>
                                 
@@ -658,7 +648,7 @@
                                     <div>
                                         <h4 class="font-semibold text-dark">Phone</h4>
                                         <p class="text-gray-600">+977 9856020179 (24/7 Emergency Line)</p>
-                                        <p class="text-gray-600">+977 061 411669 / 779 / 889 (Business Hours)</p>
+                                        <p class="text-gray-600">+977 061 411669 / 779 / 889(Business Hours)</p>
                                     </div>
                                 </div>
                                 
@@ -699,7 +689,7 @@
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="space-y-2 text-accent-600">
+                                    <ul class="space-y-2 text-gray-600">
                                         <li><i class="fas fa-check-circle text-accent mr-2"></i> Chitwan</li>
                                         <li><i class="fas fa-check-circle text-accent mr-2"></i> Butwal</li>
                                         <li><i class="fas fa-check-circle text-accent mr-2"></i> Birgunj</li>
@@ -708,7 +698,7 @@
                                 </div>
                             </div>
                             
-                            <p class="mt-4 text-accent">Call to inquire about service for your specific requirement.</p>
+                            <p class="mt-4 text-dark">Call to inquire about service to your specific area.</p>
                         </div>
                     </div>
                 </div>
@@ -723,19 +713,19 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">PTC Nepal Pvt. Ltd.</h3>
                     <p class="mb-4">
-                        Your trusted IT partner in Pokhara and surroundings areas for over 12 years.
+                        Your trusted IT experts serving Pokhara and surrounding areas for over 5 years.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-white hover:text-accent transition tap-target">
+                        <a href="#" class="text-white hover:text-accent transition">
                             <i class="fab fa-facebook-f text-xl"></i>
                         </a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-white hover:text-accent transition tap-target">
+                        <a href="#" class="text-white hover:text-accent transition">
                             <i class="fab fa-twitter text-xl"></i>
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-white hover:text-accent transition tap-target">
+                        <a href="#" class="text-white hover:text-accent transition">
                             <i class="fab fa-instagram text-xl"></i>
                         </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-white hover:text-accent transition tap-target">
+                        <a href="#" class="text-white hover:text-accent transition">
                             <i class="fab fa-linkedin-in text-xl"></i>
                         </a>
                     </div>
@@ -744,22 +734,22 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-accent transition tap-target">Home</a></li>
-                        <li><a href="#services" class="hover:text-accent transition tap-target">Services</a></li>
-                        <li><a href="#about" class="hover:text-accent transition tap-target">About Us</a></li>
-                        <li><a href="#testimonials" class="hover:text-accent transition tap-target">Testimonials</a></li>
-                        <li><a href="#contact" class="hover:text-accent transition tap-target">Contact</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Home</a></li>
+                        <li><a href="#services" class="hover:text-accent transition">Services</a></li>
+                        <li><a href="#about" class="hover:text-accent transition">About Us</a></li>
+                        <li><a href="#testimonials" class="hover:text-accent transition">Testimonials</a></li>
+                        <li><a href="#contact" class="hover:text-accent transition">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h3 class="text-xl font-bold mb-4">Services</h3>
                     <ul class="space-y-2">
-                        <li><a href="emergency-services.html" class="hover:text-accent transition tap-target">Domain Registration</a></li>
-                        <li><a href="head-cleaning.html" class="hover:text-accent transition tap-target">Website Development</a></li>
-                        <li><a href="oil-pump-service.html" class="hover:text-accent transition tap-target">Mobile App Development</a></li>
-                        <li><a href="power-steering.html" class="hover:text-accent transition tap-target">Server Management</a></li>
-                        <li><a href="gearbox-repair.html" class="hover:text-accent transition tap-target">Social Media Management</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Domain Registration</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Website Development</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Mobile App Development</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Server Setup/ Repair</a></li>
+                        <li><a href="#" class="hover:text-accent transition">SSL Certificate</a></li>
                     </ul>
                 </div>
                 
@@ -769,31 +759,31 @@
                         <p class="mb-2">Baraldanda-26, Pokhara</p>
                         <p class="mb-2">1500 mtrs from Budibazar-Chowk</p>
                         <p class="mb-4">
-                            <a href="tel:+9779856020179" class="hover:text-accent transition tap-target">+977 9856020179</a>
+                            <a href="tel:5145551234" class="hover:text-accent transition">+977 9856020179</a>
                         </p>
                         <p>
-                            <a href="mailto:info@ptcnepal.com.np" class="hover:text-accent transition tap-target">info@ptcnepal.com.np</a>
+                            <a href="mailto:info@montrealplumbingpros.com" class="hover:text-accent transition">info@ptcnepal.com.np</a>
                         </p>
                     </address>
                 </div>
             </div>
             
             <div class="border-t border-gray-700 mt-12 pt-8 text-center">
-                <p>&copy; <span id="currentYear"></span> PTC Nepal Pvt.Ltd. All Rights Reserved.</p>
+                <p>&copy; <span id="currentYear"></span> PTC Nepal. All Rights Reserved.</p>
                 <div class="mt-4 text-sm">
-                    <a href="privacy-policy.html" class="hover:text-accent transition mr-4 tap-target">Privacy Policy</a>
-                    <a href="terms-of-service.html" class="hover:text-accent transition mr-4 tap-target">Terms of Service</a>
-                    <a href="sitemap.html" class="hover:text-accent transition tap-target">Sitemap</a>
+                    <a href="#" class="hover:text-accent transition mr-4">Privacy Policy</a>
+                    <a href="#" class="hover:text-accent transition mr-4">Terms of Service</a>
+                    <a href="#" class="hover:text-accent transition">Sitemap</a>
                 </div>
-                        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-300">Developed by <a href="https://ptcnepal.com.np" class="text-primary hover:underline">PTC Nepal</a></p>
-
             </div>
+                    <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-300">Developed by <a href="https://ptcnepal.com.np" class="text-primary hover:underline">PTC Nepal</a></p>
+
         </div>
     </footer>
 
     <!-- Floating CTA -->
     <div id="floating-cta" class="fixed bottom-6 right-6 z-50">
-        <a href="tel:+9779856020179" class="bg-green-400 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition flex items-center justify-center animate-bounce tap-target" aria-label="Call Now">
+        <a href="tel:+977 9856020179" class="bg-primary hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition flex items-center justify-center animate-bounce">
             <i class="fas fa-phone text-xl"></i>
         </a>
     </div>
@@ -803,26 +793,18 @@
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-            // Change icon based on menu state
-            const icon = menuToggle.querySelector('i');
-            if (mobileMenu.classList.contains('open')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+       menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('block');
         });
         
         // Close mobile menu when clicking a link
         const mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                menuToggle.querySelector('i').classList.remove('fa-times');
-                menuToggle.querySelector('i').classList.add('fa-bars');
+                mobileMenu.classList.add('hidden');
+                                mobileMenu.classList.remove('block');
             });
         });
         
@@ -881,13 +863,5 @@
             setInterval(pulse, 15000);
             pulse(); // Initial pulse
         }
-        
-        // Prevent zoom on input focus on mobile devices
-        document.addEventListener('DOMContentLoaded', function() {
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
-            }
-        });
-    </script>
-</body>
+    </body>
 </html>
